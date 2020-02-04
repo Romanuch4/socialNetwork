@@ -1,0 +1,13 @@
+.register-title {
+  text-align: center;
+  font-size: 24px;
+  font-family: 'HelveticaNeueCyr', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  margin-bottom: 44px;
+}
+
+.register-title-span {
+  font-weight: 600;
+}

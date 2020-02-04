@@ -1,0 +1,9 @@
+.register {
+  background: linear-gradient( to bottom, #334D82,#7F91BF,#334D82);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0;
+}
