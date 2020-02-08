@@ -1,0 +1,17 @@
+.hellow-top-post-textarea {
+  resize: none;
+  width: 470px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #AAB5CD;
+  height: 38px;
+  margin-bottom: 18px;
+  color: #C3C3C3;
+}
+
+.hellow-top-post-textarea::placeholder {
+  color: #C3C3C3;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 13.89px;
+}

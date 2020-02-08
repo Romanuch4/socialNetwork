@@ -1,0 +1,32 @@
+.hellow-top-personal {
+  width: 92px;
+  height: 92px;
+  border: 8px solid #324C81;
+  position: relative;
+  outline: 8px solid rgba(0, 0, 0, 0.6);
+}
+
+.hellow-top-personal-img {
+  width: 100%;
+  height: 100%;
+}
+
+.hellow-top-personal-download {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background-color: #324C81;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-top-left-radius: 5px;
+}
+
+
+.hellow-top-personal-download:hover {
+  cursor: pointer;
+}
+
+.fa-download {
+  color: #FFF;
+}

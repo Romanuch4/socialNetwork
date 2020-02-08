@@ -1,10 +1,12 @@
 import React from 'react';
+import './hellow.css';
+import HellowTop from './hellow-top';
 
-const Hellow = () => {
+const Hellow = ({stateFriends}) => {
   return (
-    <div>
-      Hellow...
-    </div>
+    <article className="hellow">
+      <HellowTop stateFriends={stateFriends} />
+    </article>
   )
 };
 

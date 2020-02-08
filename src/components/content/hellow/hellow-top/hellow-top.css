@@ -1,0 +1,11 @@
+.hellow-top {
+  width: 100%;
+  max-width: 890px;
+  background-image: linear-gradient(to bottom, #344E84 18.75%, #302F2E 18.75%);
+  padding: 26px 27px;
+  padding-top: 52px;
+  box-shadow: -10px 0px 0px 0px rgba(0, 0, 0, 0.42),
+              10px 0px 0px 0px rgba(0, 0, 0, 0.42);
+  margin-top: -35px;
+  display: flex;
+}

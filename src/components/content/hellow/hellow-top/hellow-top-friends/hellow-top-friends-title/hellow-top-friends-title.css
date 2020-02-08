@@ -1,0 +1,22 @@
+.hellow-top-friends-title {
+  color: #fff;
+  font-size: 11.94px;
+  width: 160px;
+  height: 24px;
+  text-align: center;
+  background-image: linear-gradient(to right, #2A406D, #37548F, #2A406D);
+  font-family: 'Calibri', sans-serif;
+  margin-bottom: 2px;
+  line-height: 24px;
+  position: relative;
+}
+
+.hellow-top-friends-title::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, #2A406D, #617EBD,#2A406D)
+}

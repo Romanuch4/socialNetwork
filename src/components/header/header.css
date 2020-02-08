@@ -2,6 +2,7 @@
   background-color: #334D82;
   width: 100%;
   padding: 28px 0;
+  padding-bottom: 48px;
   display: flex;
   justify-content: center;
 }
@@ -58,6 +59,7 @@
     text-align: center;
     padding: 100px 0;
     transition: 0.87s;
+    z-index: 2;
   }
 
   .ul {
