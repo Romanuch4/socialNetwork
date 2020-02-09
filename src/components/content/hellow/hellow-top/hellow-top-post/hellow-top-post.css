@@ -9,3 +9,17 @@
   top: 26px;
   box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.45);
 }
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 901px) {
+  .hellow-top-post {
+    order: 1;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 500px) {
+  .hellow-top-post {
+    margin: 0;
+  }
+}

@@ -3,9 +3,28 @@
   max-width: 890px;
   background-image: linear-gradient(to bottom, #344E84 18.75%, #302F2E 18.75%);
   padding: 26px 27px;
-  padding-top: 52px;
+  padding-top: 56px;
   box-shadow: -10px 0px 0px 0px rgba(0, 0, 0, 0.42),
               10px 0px 0px 0px rgba(0, 0, 0, 0.42);
   margin-top: -35px;
   display: flex;
+  flex-wrap: wrap;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 901px) {
+  .hellow-top {
+    justify-content: space-around;
+    margin-top: 0;
+    padding-top: 60px;
+    background-image: linear-gradient(to bottom, #344E84 0%, #302F2E 0%);
+  }
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 646px) {
+  .hellow-top {
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,6 @@
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 646px) {
+  .hellow-top-friends {
+    align-self: center;
+  }
+}
