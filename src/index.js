@@ -5,6 +5,10 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Store from './state';
 
-ReactDOM.render(<App store={Store.getState()} />, document.getElementById('root'));
+export const rerenderEntireTree = () => {
+  ReactDOM.render(<App store={Store.getState()} />, document.getElementById('root'));
+};
+
+rerenderEntireTree();
 
 serviceWorker.unregister();

@@ -1,0 +1,7 @@
+.hellow-content {
+  display: flex;
+  width: 100%;
+  max-width: 944px;
+  box-shadow: -8px 0px 8px 0px rgba(50, 50, 50, 0.41),
+              8px 0px 8px 0px rgba(50, 50, 50, 0.41);
+}
