@@ -1,0 +1,27 @@
+.hellow-content-left_aside-friends-block {
+  position: relative;
+}
+
+.hellow-content-left_aside-friends-input {
+  width: 92px;
+  height: 22px;
+  box-sizing: border-box;
+  padding-left: 4px;
+  border: 1px solid #AAB6CE;
+}
+
+.hellow-content-left_aside-friends-input::placeholder {
+  font-size: 9.72px;
+  font-style: italic;
+  font-family: 'Calibri';
+  color: #AFAEAE;
+}
+
+.fa-search {
+  font-size: 10px;
+  color: #CACACA;
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translate(70%, -20%);
+}

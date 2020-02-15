@@ -7,7 +7,7 @@ const Hellow = ({stateFriends}) => {
   return (
     <article className="hellow">
       <HellowTop stateFriends={stateFriends} />
-      <HellowMain />
+      <HellowMain stateFriends={stateFriends} />
     </article>
   )
 };

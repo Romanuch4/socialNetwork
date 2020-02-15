@@ -2,10 +2,10 @@ import React from 'react';
 import './hellow-content.css';
 import LeftAside from './hellow-content-left_aside';
 
-const HellowContent = () => {
+const HellowContent = ({stateFriends}) => {
   return (
     <div className="hellow-content">
-      <LeftAside />
+      <LeftAside stateFriends={stateFriends} />
     </div>
   )
 };
