@@ -1,3 +1,5 @@
+import rerenderEntireTree from './render';
+
 const Store = {
   _State: {
     friends: [
@@ -39,12 +41,35 @@ const Store = {
         id: 12, name: 'Karina3', online: false, image: 'Karina.jpg', birthday: '7.1.2002'
       },
     ],
+
+    posts: [
+      {
+        id: 1,
+        text: 'Сегодня будет......',
+        date: '15.02.2020, 21:29:59'/* new Date().toLocaleString() */,
+      },
+
+      {
+        id: 2,
+        text: '123',
+        date: '05.02.2020, 21:29:59',
+      },
+    ],
+  },
+
+  addPosts(text) {
+    const newPost = {
+      id: 3,
+      text: text,
+      date: new Date().toLocaleString(),
+    };
+    this._State.posts.push(newPost);
+    rerenderEntireTree(Store);
   },
 
   getState() {
     return this._State;
   }
 };
-
 
 export default Store;

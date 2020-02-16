@@ -5,10 +5,10 @@ import Profile from './profile';
 import Exit from './exit';
 import Register from './register';
 
-const Content = ({state}) => {
+const Content = ({state, addPosts}) => {
   return (
       <main className="main">
-        <Route path='/hellow' render={() => <Hellow stateFriends={state.friends} />} />
+        <Route path='/hellow' render={() => <Hellow addPosts={addPosts} statePosts={state.posts} stateFriends={state.friends} />} />
         <Route path='/profile' render={() => <Profile />} />
         <Route path='/exit' render={() => <Exit />} />
         <Route exact path='/' render={()=> <Register />}/>

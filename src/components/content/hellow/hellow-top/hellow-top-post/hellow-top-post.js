@@ -3,10 +3,10 @@ import './hellow-top-post.css';
 import HellowTopPostArea from './hellow-top-post-textarea';
 import HellowTopPostButton from './hellow-top-post-button';
 
-const HellowTopPost = () => {
+const HellowTopPost = ({addPosts}) => {
   return (
     <div className="hellow-top-post">
-      <HellowTopPostArea />
+      <HellowTopPostArea addPosts={addPosts} />
       <HellowTopPostButton />
     </div>
   )

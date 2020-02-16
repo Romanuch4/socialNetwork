@@ -22,9 +22,8 @@ const LeftAsideFriendsItem = ({ stateFriends }) => {
       className = "hellow-content-left_aside-friends-item-block hellow-content-left_aside-friends-item-block-1";
     }
     return (
-      <div className={className}>
+      <div className={className} key={item.id}>
         <img
-          key={item.id}
           src={save}
           alt={item.name}
           className="hellow-content-left_aside-friends-item"

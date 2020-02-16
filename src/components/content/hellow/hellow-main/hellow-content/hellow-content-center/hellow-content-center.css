@@ -1,0 +1,11 @@
+.hellow-content-center {
+  margin-left: 15px;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  min-height: 300px;
+  max-width: 518px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25px;
+  padding-top: 35px;
+}

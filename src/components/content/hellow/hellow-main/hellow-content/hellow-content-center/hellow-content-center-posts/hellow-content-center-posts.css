@@ -1,0 +1,15 @@
+.hellow-content-center-post {
+  margin: 20px 0;
+  border:2px solid #334D82;
+}
+
+.hellow-content-center-post-date {
+  font-size: 14px;
+  color: #334D82;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.hellow-content-center-post-text {
+  font-size: 18px;
+}
