@@ -42,17 +42,52 @@ const Store = {
       },
     ],
 
-    posts: [
+    posts: {
+      posts: [
+        {
+          id: 1,
+          text: 'Сегодня будет......',
+          date: '15.02.2020, 21:29:59'/* new Date().toLocaleString() */,
+        },
+  
+        {
+          id: 2,
+          text: '123',
+          date: '05.02.2020, 21:29:59',
+        },
+      ],
+      newPostText: "",
+    },
+
+    events: [
+      {
+        id: 0,
+        title: 'Вечірка',
+        date: 'В 20:00 по Киеву'
+      },
+
       {
         id: 1,
-        text: 'Сегодня будет......',
-        date: '15.02.2020, 21:29:59'/* new Date().toLocaleString() */,
+        title: 'Вечірка 1',
+        date: 'В 20:00 по Киеву'
       },
 
       {
         id: 2,
-        text: '123',
-        date: '05.02.2020, 21:29:59',
+        title: 'Вечірка 2',
+        date: 'В 20:00 по Киеву'
+      },
+
+      {
+        id: 3,
+        title: 'Вечірка 3',
+        date: 'В 20:00 по Киеву'
+      },
+
+      {
+        id: 4,
+        title: 'Вечірка 4',
+        date: 'В 20:00 по Киеву'
       },
     ],
   },
@@ -63,7 +98,23 @@ const Store = {
       text: text,
       date: new Date().toLocaleString(),
     };
-    this._State.posts.push(newPost);
+    this._State.posts.posts.push(newPost);
+    rerenderEntireTree(Store);
+    this._State.posts.newPostText = "";
+  },
+
+  updatePostTexts(text) {
+    this._State.posts.newPostText = text;
+    rerenderEntireTree(Store);
+  },
+
+  deleteEvents(id) {
+    console.log(id)
+    for(let i = 0; i < this._State.events.length; i++) {
+      if(this._State.events[i].id === parseInt(id, 10)) {
+        this._State.events.splice(this._State.events[i].id,1);
+      }
+    };
     rerenderEntireTree(Store);
   },
 

@@ -32,6 +32,13 @@
 }
 
 /* Medium Devices, Desktops */
+@media only screen and (max-width : 944px) {
+  .hellow-top-personal {
+    margin: 10px;
+  }
+}
+
+/* Medium Devices, Desktops */
 @media only screen and (max-width : 646px) {
   .hellow-top-personal {
     align-self: center;

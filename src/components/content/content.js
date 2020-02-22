@@ -5,10 +5,18 @@ import Profile from './profile';
 import Exit from './exit';
 import Register from './register';
 
-const Content = ({state, addPosts}) => {
+const Content = ({state, addPosts, deleteEvents, updatePostTexts}) => {
   return (
       <main className="main">
-        <Route path='/hellow' render={() => <Hellow addPosts={addPosts} statePosts={state.posts} stateFriends={state.friends} />} />
+        <Route path='/hellow' render={() => <Hellow 
+                                              addPosts={addPosts} 
+                                              statePosts={state.posts.posts}
+                                              newPostText={state.posts.newPostText} 
+                                              stateFriends={state.friends} 
+                                              stateEvents={state.events}
+                                              deleteEvents={deleteEvents}
+                                              updatePostTexts={updatePostTexts}
+        />} />
         <Route path='/profile' render={() => <Profile />} />
         <Route path='/exit' render={() => <Exit />} />
         <Route exact path='/' render={()=> <Register />}/>

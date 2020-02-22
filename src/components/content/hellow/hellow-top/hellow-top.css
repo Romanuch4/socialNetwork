@@ -1,7 +1,7 @@
 .hellow-top {
-  width: 100%;
   max-width: 890px;
-  background-image: linear-gradient(to bottom, #344E84 18.75%, #302F2E 18.75%);
+  width: 100%;
+  background-image: linear-gradient(to bottom, #344E84 35px, #302F2E 35px);
   padding: 26px 27px;
   padding-top: 56px;
   box-shadow: -10px 0px 0px 0px rgba(0, 0, 0, 0.42),
@@ -9,6 +9,14 @@
   margin-top: -35px;
   display: flex;
   flex-wrap: wrap;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 944px) {
+  .hellow-top {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 /* Medium Devices, Desktops */

@@ -1,17 +1,21 @@
 import React from 'react';
 import './hellow-top-post-textarea.css';
 
-const HellowTopPostArea = ({addPosts}) => {
-  let newPostText = React.createRef();
+const HellowTopPostArea = ({addPosts, newPostText, updatePostTexts}) => {
+  let postText = React.createRef();
   const addPost = () => {
-    let text = newPostText.current.value;
-    newPostText.current.value = '';
+    let text = postText.current.value;
     addPosts(text);
+  };
+
+  const updatePostText = () => {
+    let text = postText.current.value;
+    updatePostTexts(text);
   };
 
   window.addPost = addPost;
   return (
-    <textarea ref={newPostText} placeholder="Это мой новый пост..." className="hellow-top-post-textarea" />
+    <textarea onChange={updatePostText} ref={postText} value={newPostText} placeholder="Это мой новый пост..." className="hellow-top-post-textarea" />
   )
 };
 

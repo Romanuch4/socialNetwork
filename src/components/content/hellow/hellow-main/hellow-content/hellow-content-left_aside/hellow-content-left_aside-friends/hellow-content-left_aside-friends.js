@@ -6,7 +6,7 @@ import LeftAsideFriendsMore from './hellow-content-left_aside-friends-more';
 
 const LeftAsideFriends = ({stateFriends}) => {
   return (
-    <div>
+    <div className="hellow-content-left_aside-friends">
       <LeftAsideFriendsSearch />
       <LeftAsideFriendsItem stateFriends={stateFriends} />
       <LeftAsideFriendsMore />
