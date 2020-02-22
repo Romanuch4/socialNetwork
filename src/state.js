@@ -1,4 +1,4 @@
-import rerenderEntireTree from './render';
+let rerenderEntireTree;
 
 const Store = {
   _State: {
@@ -122,5 +122,9 @@ const Store = {
     return this._State;
   }
 };
+
+export const subscribe = observer => {
+  rerenderEntireTree = observer;
+} 
 
 export default Store;
