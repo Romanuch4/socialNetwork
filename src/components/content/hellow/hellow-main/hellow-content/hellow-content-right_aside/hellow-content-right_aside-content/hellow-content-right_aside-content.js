@@ -4,16 +4,14 @@ import img from './images/task.png';
 import img1 from './images/close.png';
 
 const RightAsideContent = ({stateEvents, deleteEvents}) => {
-
-  const eventElement = React.createRef();
-  const deleteEvent = () => {
-    const id = parseInt(eventElement.current.dataset.id, 10);
-    deleteEvents(id);
+  const deleteEvent = (evt) => {
+    const text = evt.nativeEvent.target.parentNode.dataset.title;
+    deleteEvents(text);
   };
   const content = stateEvents.map(
     item => {
       return (
-        <div ref={eventElement} className="hellow-content-right_aside-content" data-id={item.id} key={item.id}>
+        <div className="hellow-content-right_aside-content" data-title={item.title} key={item.id}>
           <img className="hellow-content-right_aside-content-img" src={img} alt="event" />
 
           <div className="hellow-content-right_aside-content-text">
@@ -25,7 +23,7 @@ const RightAsideContent = ({stateEvents, deleteEvents}) => {
             </h5>
           </div>
 
-          <img onClick={deleteEvent} className="hellow-content-right_aside-content-close" src={img1} alt="close" />
+          <img onClick={evt => deleteEvent(evt)} className="hellow-content-right_aside-content-close" src={img1} alt="close" />
         </div>
       );
     }

@@ -108,12 +108,11 @@ const Store = {
     rerenderEntireTree(Store);
   },
 
-  deleteEvents(id) {
-    console.log(id)
+  deleteEvents(text) {
     for(let i = 0; i < this._State.events.length; i++) {
-      if(this._State.events[i].id === parseInt(id, 10)) {
-        this._State.events.splice(this._State.events[i].id,1);
-      }
+      if(this._State.events[i].title === text) {
+        this._State.events.splice(i,1);
+      };
     };
     rerenderEntireTree(Store);
   },
