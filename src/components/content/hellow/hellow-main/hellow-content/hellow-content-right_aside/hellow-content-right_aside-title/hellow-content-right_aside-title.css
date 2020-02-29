@@ -32,3 +32,20 @@
   left: 100%;
   background-color: #D0D5DE;
 }
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 965px) {
+  .hellow-content-right_aside-title {
+    width: 100%;
+  }
+
+  .hellow-content-right_aside-title::before {
+    left: 116.4%;
+  }
+}
+
+@media only screen and (max-width: 422px) {
+  .hellow-content-right_aside-title {
+    min-width: 152px;
+  }
+}

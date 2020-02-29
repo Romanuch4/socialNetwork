@@ -26,6 +26,8 @@
     margin-top: 0;
     padding-top: 60px;
     background-image: linear-gradient(to bottom, #344E84 0%, #302F2E 0%);
+    flex-direction: column;
+    align-items: center;
   }
 }
 

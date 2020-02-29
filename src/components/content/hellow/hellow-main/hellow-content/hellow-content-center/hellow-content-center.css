@@ -9,3 +9,9 @@
   padding: 0 25px;
   padding-top: 35px;
 }
+
+@media only screen and (max-width: 694px) {
+  .hellow-content-center {
+    margin-left: 0;
+  }
+}

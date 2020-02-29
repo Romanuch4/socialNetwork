@@ -18,6 +18,13 @@
 }
 
 /* Medium Devices, Desktops */
+@media only screen and (max-width : 694px) {
+  .hellow-top-post {
+    width: 80%;
+  }
+}
+
+/* Medium Devices, Desktops */
 @media only screen and (max-width : 500px) {
   .hellow-top-post {
     margin: 0;

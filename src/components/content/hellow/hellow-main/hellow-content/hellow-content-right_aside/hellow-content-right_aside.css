@@ -2,3 +2,19 @@
   margin-top: 40px;
   margin-left: 35px;
 }
+
+@media only screen and (max-width: 694px) {
+  .hellow-content-right_aside {
+    position: relative;
+    bottom: 118px;
+    order: 2;
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 422px) {
+  .hellow-content-right_aside {
+    bottom: 0;
+    align-self: flex-start;
+  }
+}
