@@ -6,18 +6,16 @@ import Exit from './exit';
 import Register from './register';
 import HellowBottom from './hellow/hellow-bottom';
 
-const Content = ({state, addPosts, deleteEvents, updatePostTexts}) => {
+const Content = ({state, dispatch}) => {
   return (
       <div>
         <main className="main">
         <Route path='/hellow' render={() => <Hellow 
-                                              addPosts={addPosts} 
+                                              dispatch={dispatch} 
                                               statePosts={state.posts.posts}
                                               newPostText={state.posts.newPostText} 
                                               stateFriends={state.friends} 
                                               stateEvents={state.events}
-                                              deleteEvents={deleteEvents}
-                                              updatePostTexts={updatePostTexts}
         />} />
         <Route path='/profile' render={() => <Profile />} />
         <Route path='/exit' render={() => <Exit />} />

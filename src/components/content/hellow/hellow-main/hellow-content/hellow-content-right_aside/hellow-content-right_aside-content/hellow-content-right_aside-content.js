@@ -3,10 +3,13 @@ import './hellow-content-right_aside-content.css';
 import img from './images/task.png';
 import img1 from './images/close.png';
 
-const RightAsideContent = ({stateEvents, deleteEvents}) => {
+const RightAsideContent = ({stateEvents, dispatch}) => {
   const deleteEvent = (evt) => {
     const text = evt.nativeEvent.target.parentNode.dataset.title;
-    deleteEvents(text);
+    dispatch({
+      type: 'DELETE-EVENTS',
+      text: text,
+    });
   };
   const content = stateEvents.map(
     item => {

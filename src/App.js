@@ -4,12 +4,12 @@ import Header from './components/header';
 import Content from './components/content';
 import { BrowserRouter } from 'react-router-dom';
 
-function App({store, addPosts, deleteEvents, updatePostTexts}) {
+function App({store, dispatch}) {
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Content updatePostTexts={updatePostTexts} deleteEvents={deleteEvents} addPosts={addPosts} state={store}/>
+        <Content dispatch={dispatch} state={store}/>
       </div>
     </BrowserRouter>
   );

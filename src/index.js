@@ -7,10 +7,8 @@ import App from './App';
 import {subscribe} from './state';
 
 const rerenderEntireTree = () => {
-  ReactDOM.render(<App deleteEvents={Store.deleteEvents.bind(Store)}
-                       addPosts={Store.addPosts.bind(Store)} 
-                       store={Store.getState()} 
-                       updatePostTexts={Store.updatePostTexts.bind(Store)}
+  ReactDOM.render(<App dispatch={Store.dispatch.bind(Store)}
+                       store={Store.getState()}
                   />, document.getElementById('root'));
 };
 

@@ -4,12 +4,12 @@ import LeftAside from './hellow-content-left_aside';
 import Center from './hellow-content-center';
 import RightAside from './hellow-content-right_aside';
 
-const HellowContent = ({stateFriends, statePosts, stateEvents, deleteEvents}) => {
+const HellowContent = ({stateFriends, statePosts, stateEvents, dispatch}) => {
   return (
     <div className="hellow-content">
       <LeftAside stateFriends={stateFriends} />
       <Center statePosts={statePosts} />
-      <RightAside deleteEvents={deleteEvents} stateEvents={stateEvents} />
+      <RightAside dispatch={dispatch} stateEvents={stateEvents} />
     </div>
   )
 };

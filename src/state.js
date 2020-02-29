@@ -92,29 +92,31 @@ const Store = {
     ],
   },
 
-  addPosts(text) {
-    const newPost = {
-      id: 3,
-      text: text,
-      date: new Date().toLocaleString(),
-    };
-    this._State.posts.posts.push(newPost);
-    rerenderEntireTree(Store);
-    this._State.posts.newPostText = "";
-  },
-
-  updatePostTexts(text) {
-    this._State.posts.newPostText = text;
-    rerenderEntireTree(Store);
-  },
-
-  deleteEvents(text) {
-    for(let i = 0; i < this._State.events.length; i++) {
-      if(this._State.events[i].title === text) {
-        this._State.events.splice(i,1);
+  dispatch(action) {
+    if(action.type === 'ADD-POSTS') {
+      const newPost = {
+        id: 3,
+        text: action.text,
+        date: new Date().toLocaleString(),
       };
-    };
-    rerenderEntireTree(Store);
+      this._State.posts.posts.push(newPost);
+      rerenderEntireTree(Store);
+      this._State.posts.newPostText = "";
+    } 
+
+    else if(action.type === 'UPDATE-POST-TEXTS') {
+      this._State.posts.newPostText = action.text;
+      rerenderEntireTree(Store);
+    } 
+
+    else if(action.type === 'DELETE-EVENTS') {
+      for(let i = 0; i < this._State.events.length; i++) {
+        if(this._State.events[i].title === action.text) {
+          this._State.events.splice(i,1);
+        };
+      };
+      rerenderEntireTree(Store);
+    }
   },
 
   getState() {
