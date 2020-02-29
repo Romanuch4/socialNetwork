@@ -4,10 +4,12 @@ import Hellow from './hellow';
 import Profile from './profile';
 import Exit from './exit';
 import Register from './register';
+import HellowBottom from './hellow/hellow-bottom';
 
 const Content = ({state, addPosts, deleteEvents, updatePostTexts}) => {
   return (
-      <main className="main">
+      <div>
+        <main className="main">
         <Route path='/hellow' render={() => <Hellow 
                                               addPosts={addPosts} 
                                               statePosts={state.posts.posts}
@@ -21,6 +23,8 @@ const Content = ({state, addPosts, deleteEvents, updatePostTexts}) => {
         <Route path='/exit' render={() => <Exit />} />
         <Route exact path='/' render={()=> <Register />}/>
       </main>
+        <HellowBottom />
+      </div>
   )
 };
 

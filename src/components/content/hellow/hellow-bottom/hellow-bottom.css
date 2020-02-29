@@ -1,0 +1,6 @@
+.hellow-bottom {
+  background: linear-gradient(to bottom, #6486CB 1px, #44629E 1px);
+  display: flex;
+  justify-content: center;
+  padding: 11px 0;
+}
