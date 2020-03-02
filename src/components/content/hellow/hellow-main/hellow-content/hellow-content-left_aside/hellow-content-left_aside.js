@@ -3,11 +3,11 @@ import './hellow-content-left_aside.css';
 import LeftAsideMessages from './hellow-content-left_aside-messages';
 import LeftAsideFriends from './hellow-content-left_aside-friends';
 
-const LeftAside = ({stateFriends}) => {
+const LeftAside = ({stateFriends, searchFriendsText, dispatch}) => {
   return (
     <div className="hellow-content-left_aside">
       <LeftAsideMessages />
-      <LeftAsideFriends stateFriends={stateFriends} />
+      <LeftAsideFriends dispatch={dispatch} searchFriendsText={searchFriendsText} stateFriends={stateFriends} />
     </div>
   )
 };

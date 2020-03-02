@@ -16,6 +16,7 @@ const Content = ({state, dispatch}) => {
                                               newPostText={state.posts.newPostText} 
                                               stateFriends={state.friends} 
                                               stateEvents={state.events}
+                                              searchFriendsText={state.searchFriendsText}
         />} />
         <Route path='/profile' render={() => <Profile />} />
         <Route path='/exit' render={() => <Exit />} />

@@ -4,10 +4,10 @@ import LeftAsideFriendsSearch from './hellow-content-left_aside-friends-search';
 import LeftAsideFriendsItem from './hellow-content-left_aside-friends-item';
 import LeftAsideFriendsMore from './hellow-content-left_aside-friends-more';
 
-const LeftAsideFriends = ({stateFriends}) => {
+const LeftAsideFriends = ({stateFriends, searchFriendsText, dispatch}) => {
   return (
     <div className="hellow-content-left_aside-friends">
-      <LeftAsideFriendsSearch />
+      <LeftAsideFriendsSearch dispatch={dispatch} searchFriendsText={searchFriendsText} />
       <LeftAsideFriendsItem stateFriends={stateFriends} />
       <LeftAsideFriendsMore />
     </div>

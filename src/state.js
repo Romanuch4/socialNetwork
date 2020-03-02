@@ -4,7 +4,7 @@ const Store = {
   _State: {
     friends: [
       {
-        id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '1.2'
+        id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '3.3'
       },
       {
         id: 2, name: 'Max', online: false, image: 'Max.jpg', birthday: '13.4'
@@ -13,7 +13,7 @@ const Store = {
         id: 3, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '1.2'
       },
       {
-        id: 4, name: 'Roman1', online: false, image: 'Roman.png', birthday: '1.2'
+        id: 4, name: 'Roman1', online: false, image: 'Roman.png', birthday: '3.3'
       },
       {
         id: 5, name: 'Max2', online: true, image: 'Max.jpg', birthday: '8.2'
@@ -29,7 +29,7 @@ const Store = {
         id: 8, name: 'Max2', online: false, image: 'Max.jpg', birthday: '13.4'
       },
       {
-        id: 9, name: 'Karina2', online: true, image: 'Karina.jpg', birthday: '14.5'
+        id: 9, name: 'Karina2', online: true, image: 'Karina.jpg', birthday: '3.3'
       },
       {
         id: 10, name: 'Roman3', online: false, image: 'Roman.png', birthday: '8.1'
@@ -42,22 +42,22 @@ const Store = {
       },
 
       {
-        id: 13, name: 'Roman2', online: true, image: 'Roman.png', birthday: '3.1'
+        id: 13, name: 'Roman4', online: true, image: 'Roman.png', birthday: '3.1'
       },
       {
-        id: 14, name: 'Max2', online: false, image: 'Max.jpg', birthday: '3.4'
+        id: 14, name: 'Max4', online: false, image: 'Max.jpg', birthday: '3.4'
       },
       {
-        id: 15, name: 'Karina2', online: true, image: 'Karina.jpg', birthday: '2.2'
+        id: 15, name: 'Karina4', online: true, image: 'Karina.jpg', birthday: '2.2'
       },
       {
-        id: 16, name: 'Roman3', online: false, image: 'Roman.png', birthday: '2.2'
+        id: 16, name: 'Roman4', online: false, image: 'Roman.png', birthday: '2.2'
       },
       {
-        id: 17, name: 'Max3', online: true, image: 'Max.jpg', birthday: '1.2'
+        id: 17, name: 'Max4', online: true, image: 'Max.jpg', birthday: '1.2'
       },
       {
-        id: 18, name: 'Karina3', online: false, image: 'Karina.jpg', birthday: '1.1'
+        id: 18, name: 'Karina4', online: false, image: 'Karina.jpg', birthday: '1.1'
       },
     ],
 
@@ -109,6 +109,8 @@ const Store = {
         date: 'В 20:00 по Киеву'
       },
     ],
+
+    searchFriendsText: "",
   },
 
   dispatch(action) {
@@ -125,6 +127,11 @@ const Store = {
 
     else if(action.type === 'UPDATE-POST-TEXTS') {
       this._State.posts.newPostText = action.text;
+      rerenderEntireTree(Store);
+    } 
+
+    else if(action.type === 'UPDATE-FRIENDS-TEXTS') {
+      this._State.searchFriendsText = action.text;
       rerenderEntireTree(Store);
     } 
 
