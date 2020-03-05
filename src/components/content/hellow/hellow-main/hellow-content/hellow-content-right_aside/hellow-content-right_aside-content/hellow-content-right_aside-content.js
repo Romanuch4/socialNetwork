@@ -11,7 +11,8 @@ const RightAsideContent = ({stateEvents, dispatch}) => {
       text: text,
     });
   };
-  const content = stateEvents.map(
+
+  const content = stateEvents.events.map(
     item => {
       return (
         <div className="hellow-content-right_aside-content" data-title={item.title} key={item.id}>

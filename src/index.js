@@ -1,10 +1,9 @@
-import Store from './state';
+import Store from './redux/redux-store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {subscribe} from './state';
 
 const rerenderEntireTree = () => {
   ReactDOM.render(<App dispatch={Store.dispatch.bind(Store)}
@@ -14,6 +13,9 @@ const rerenderEntireTree = () => {
 
 rerenderEntireTree(Store);
 
-subscribe(rerenderEntireTree);
+Store.subscribe(()=> {
+  const state = Store.getState();
+  rerenderEntireTree(state);
+});
 
 serviceWorker.unregister();

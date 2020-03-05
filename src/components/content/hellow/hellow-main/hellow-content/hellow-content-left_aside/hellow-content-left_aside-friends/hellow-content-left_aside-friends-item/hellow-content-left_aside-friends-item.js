@@ -6,7 +6,7 @@ import avatar3 from '../../../../../../../../images/Karina.jpg';
 
 const LeftAsideFriendsItem = ({ stateFriends }) => {
   let save;
-  const elements = stateFriends.map(item => {
+  const elements = stateFriends.friends.map(item => {
     if (item.image === "Roman.png") {
       save = avatar1;
     } else if (item.image === "Max.jpg") {

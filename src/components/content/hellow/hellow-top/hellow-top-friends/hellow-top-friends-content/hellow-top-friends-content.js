@@ -9,7 +9,7 @@ const HellowTopPFriendsContent = ({ stateFriends }) => {
   const date = new Date();
   let birthday = `${date.getDate()}.${date.getMonth()}`;
   let src = '';
-  const elements = stateFriends.map(item => {
+  const elements = stateFriends.friends.map(item => {
     if (item.birthday === birthday) {
       if (item.image === 'Roman.png') {
         src = image1;
