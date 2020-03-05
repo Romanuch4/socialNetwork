@@ -1,19 +1,24 @@
+import deleteEventsReducer from './redux/reducers/delete_events-reducer';
+import updateFriendsTextsReducer from './redux/reducers/update_friends_texts-reducer';
+import updatePostTextReducer from './redux/reducers/update_post_text-reducer';
+import addPostReducer from './redux/reducers/add_post-reducer';
+
 let rerenderEntireTree;
 
 const Store = {
   _State: {
     friends: [
       {
-        id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '3.3'
+        id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '5.2'
       },
       {
-        id: 2, name: 'Max', online: false, image: 'Max.jpg', birthday: '13.4'
+        id: 2, name: 'Max', online: false, image: 'Max.jpg', birthday: '5.2'
       },
       {
         id: 3, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '1.2'
       },
       {
-        id: 4, name: 'Roman1', online: false, image: 'Roman.png', birthday: '3.3'
+        id: 4, name: 'Roman1', online: false, image: 'Roman.png', birthday: '5.2'
       },
       {
         id: 5, name: 'Max2', online: true, image: 'Max.jpg', birthday: '8.2'
@@ -32,13 +37,13 @@ const Store = {
         id: 9, name: 'Karina2', online: true, image: 'Karina.jpg', birthday: '3.3'
       },
       {
-        id: 10, name: 'Roman3', online: false, image: 'Roman.png', birthday: '8.1'
+        id: 10, name: 'Roman3', online: false, image: 'Roman.png', birthday: '5.2'
       },
       {
-        id: 11, name: 'Max3', online: true, image: 'Max.jpg', birthday: '8.2'
+        id: 11, name: 'Max3', online: true, image: 'Max.jpg', birthday: '5.2'
       },
       {
-        id: 12, name: 'Karina3', online: false, image: 'Karina.jpg', birthday: '7.1'
+        id: 12, name: 'Karina3', online: false, image: 'Karina.jpg', birthday: '5.2'
       },
 
       {
@@ -114,7 +119,7 @@ const Store = {
   },
 
   dispatch(action) {
-    if(action.type === 'ADD-POSTS') {
+    /* if(action.type === 'ADD-POSTS') {
       const newPost = {
         id: 3,
         text: action.text,
@@ -142,7 +147,12 @@ const Store = {
         };
       };
       rerenderEntireTree(Store);
-    }
+    } */
+    this._State.posts = addPostReducer(this._State.posts, action);
+    this._State.posts = updatePostTextReducer(this._State.posts, action);
+    this._State = updateFriendsTextsReducer(this._State, action);
+    this._State.events = deleteEventsReducer(this._State.events, action);
+    rerenderEntireTree(Store);
   },
 
   getState() {
