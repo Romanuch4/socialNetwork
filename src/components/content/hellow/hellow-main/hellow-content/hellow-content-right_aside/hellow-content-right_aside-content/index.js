@@ -1,3 +1,3 @@
-import RightAsideContent from './hellow-content-right_aside-content';
+import RightAsideContentContainer from './hellow-content-right_aside-content-Container';
 
-export default RightAsideContent;
+export default RightAsideContentContainer;

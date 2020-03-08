@@ -1,3 +1,3 @@
-import HellowTopPostArea from './hellow-top-post-textarea';
+import HellowTopPostAreaContainer from './hellow-top-post-textarea-Container';
 
-export default HellowTopPostArea;
+export default HellowTopPostAreaContainer;

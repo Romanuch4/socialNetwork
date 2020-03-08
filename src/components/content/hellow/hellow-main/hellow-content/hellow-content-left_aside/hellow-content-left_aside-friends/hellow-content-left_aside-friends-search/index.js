@@ -1,3 +1,3 @@
-import LeftAsideFriendsSearch from './hellow-content-left_aside-friends-search';
+import LeftAsideFriendsSearchContainer from './hellow-content-left_aside-friends-search-Container';
 
-export default LeftAsideFriendsSearch;
+export default LeftAsideFriendsSearchContainer;
