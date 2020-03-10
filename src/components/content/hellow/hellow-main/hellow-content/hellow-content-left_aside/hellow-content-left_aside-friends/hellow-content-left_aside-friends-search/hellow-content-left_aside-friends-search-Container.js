@@ -1,20 +1,23 @@
-import React from 'react';
 import LeftAsideFriendsSearch from './hellow-content-left_aside-friends-search';
+import { connect } from 'react-redux';
 
-const LeftAsideFriendsSearchContainer = ({searchFriendsText, dispatch}) => {
-  const changeInputValues = (text) => {
-    dispatch({
-      type: 'UPDATE-FRIENDS-TEXTS',
-      text: text,
-    });
+const mapStateToProps = state => {
+  return {
+    searchFriendsText: state.searchFriendsText,
   };
-
-  return (
-    <LeftAsideFriendsSearch 
-      searchFriendsText={searchFriendsText} 
-      changeInputValues={changeInputValues} 
-    />
-  );
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeInputValues: text => {
+      dispatch({
+        type: 'UPDATE-FRIENDS-TEXTS',
+        text: text,
+      });
+    },
+  };
+};
+
+const LeftAsideFriendsSearchContainer = connect(mapStateToProps ,mapDispatchToProps)(LeftAsideFriendsSearch);
 
 export default LeftAsideFriendsSearchContainer;

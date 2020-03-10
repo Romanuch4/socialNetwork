@@ -13,9 +13,7 @@ const Content = ({state, dispatch}) => {
         <Route path='/hellow' render={() => <Hellow 
                                               dispatch={dispatch} 
                                               statePosts={state.posts.posts}
-                                              newPostText={state.posts.newPostText} 
                                               stateFriends={state.friends} 
-                                              stateEvents={state.events}
                                               searchFriendsText={state.searchFriendsText}
         />} />
         <Route path='/profile' render={() => <Profile />} />

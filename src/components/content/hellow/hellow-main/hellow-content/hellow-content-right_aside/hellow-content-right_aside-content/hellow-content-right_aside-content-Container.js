@@ -1,16 +1,23 @@
-import React from 'react';
 import RightAsideContent from './hellow-content-right_aside-content';
+import { connect } from 'react-redux';
 
-const RightAsideContentContainer = ({stateEvents, dispatch}) => {
-  const deleteEvents = (text) => {
-    dispatch({
-      type: 'DELETE-EVENTS',
-      text: text,
-    });
+const mapStateToProps = state => {
+  return {
+    stateEvents: state.events,
   };
-  return (
-    <RightAsideContent stateEvents={stateEvents} deleteEvents={deleteEvents} />
-  );
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteEvents: text => {
+      dispatch({
+        type: 'DELETE-EVENTS',
+        text: text,
+      });
+    },
+  };
+};
+
+const RightAsideContentContainer = connect(mapStateToProps, mapDispatchToProps)(RightAsideContent);
 
 export default RightAsideContentContainer;
