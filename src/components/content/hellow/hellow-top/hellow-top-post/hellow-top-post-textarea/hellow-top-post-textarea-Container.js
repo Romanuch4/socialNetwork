@@ -2,8 +2,9 @@ import HellowTopPostArea from './hellow-top-post-textarea';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    newPostText: state.newPostText,
+    newPostText: state.posts.posts.newPostText,
   };
 };
 

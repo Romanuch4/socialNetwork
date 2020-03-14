@@ -22,10 +22,16 @@ const PostReducer = (state = initialState, action) => {
       text: action.text,
       date: new Date().toLocaleString(),
     };
-    state.posts.push(newPost);
-    state.newPostText = "";
+    return {
+      ...state,
+      posts: [...state.posts, newPost],
+      newPostText: "",
+    };
   } else if(action.type === 'UPDATE-POST-TEXTS') {
-      state.newPostText = action.text;
+    return {
+      ...state,
+      newPostText: action.text,
+    };
   };
   return state;
 };

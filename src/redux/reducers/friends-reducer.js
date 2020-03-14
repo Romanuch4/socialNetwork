@@ -62,7 +62,11 @@ const initialState = {
 
 const FriendsReducer = (state = initialState, action) => {
   if(action.type === 'UPDATE-FRIENDS-TEXTS') {
-    state.searchFriendsText = action.text;
+    return {
+      ...state,
+      searchFriendsText: action.text,
+    }
+    /* state.searchFriendsText = action.text; */
   } 
     
   return state;

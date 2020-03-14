@@ -4,7 +4,6 @@ import img from './images/task.png';
 import img1 from './images/close.png';
 
 const RightAsideContent = ({stateEvents, deleteEvents}) => {
-  console.log(deleteEvents)
   const deleteEvent = evt => {
     const text = evt.nativeEvent.target.parentNode.dataset.title;
     deleteEvents(text);

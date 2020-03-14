@@ -33,12 +33,14 @@ const initialState = {
 }
 
 const deleteEventsReducer = (state = initialState, action) => {
+  let stateCopy = JSON.parse(JSON.stringify(state));
   if(action.type === 'DELETE-EVENTS') {
-    for(let i = 0; i < state.events.length; i++) {
-      if(state.events[i].title === action.text) {
-        state.events.splice(i,1);
+    for(let i = 0; i < stateCopy.events.length; i++) {
+      if(stateCopy.events[i].title === action.text) {
+        stateCopy.events.splice(i,1);
       };
     };
+    return stateCopy;
   };
 
   return state;
