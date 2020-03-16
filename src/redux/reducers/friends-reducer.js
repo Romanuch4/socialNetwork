@@ -1,13 +1,13 @@
 const initialState = {
   friends: [
     {
-      id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '9.2'
+      id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '16.2'
     },
     {
-      id: 2, name: 'Max', online: false, image: 'Max.jpg', birthday: '9.2'
+      id: 2, name: 'Max', online: false, image: 'Max.jpg', birthday: '16.2'
     },
     {
-      id: 3, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '9.2'
+      id: 3, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '16.2'
     },
     {
       id: 4, name: 'Roman1', online: false, image: 'Roman.png', birthday: '10.2'
@@ -37,25 +37,6 @@ const initialState = {
     {
       id: 12, name: 'Karina3', online: false, image: 'Karina.jpg', birthday: '5.2'
     },
-
-    {
-      id: 13, name: 'Roman4', online: true, image: 'Roman.png', birthday: '3.1'
-    },
-    {
-      id: 14, name: 'Max4', online: false, image: 'Max.jpg', birthday: '3.4'
-    },
-    {
-      id: 15, name: 'Karina4', online: true, image: 'Karina.jpg', birthday: '2.2'
-    },
-    {
-      id: 16, name: 'Roman4', online: false, image: 'Roman.png', birthday: '2.2'
-    },
-    {
-      id: 17, name: 'Max4', online: true, image: 'Max.jpg', birthday: '1.2'
-    },
-    {
-      id: 18, name: 'Karina4', online: false, image: 'Karina.jpg', birthday: '1.1'
-    },
   ],
   searchFriendsText: "",
 }
@@ -65,10 +46,14 @@ const FriendsReducer = (state = initialState, action) => {
     return {
       ...state,
       searchFriendsText: action.text,
-    }
-    /* state.searchFriendsText = action.text; */
-  } 
+    };
     
+   } else if(action.type === 'GET-FRIENDS') {
+    return {
+      ...state,
+      friends: [...state.friends, ...action.friends],
+    };
+   };
   return state;
 };
 

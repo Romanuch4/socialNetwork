@@ -3,7 +3,7 @@ import './hellow-content-left_aside-friends-more.css';
 
 const LeftAsideFriendsMore = () => {
   return (
-    <button className="hellow-content-left_aside-friends-button">
+    <button onClick={window.addFriends} className="hellow-content-left_aside-friends-button">
       больше
     </button>
   );
