@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as axios from 'axios';
 import './hellow-content-left_aside-friends-item.css';
 import avatar1 from '../../../../../../../../images/Roman.png';
@@ -6,13 +6,10 @@ import avatar2 from '../../../../../../../../images/Max.jpg';
 import avatar3 from '../../../../../../../../images/Karina.jpg';
 
 export default class LeftAsideFriendsItem extends Component {
-  componentDidMount() {
-    const addFriends = () => {
-      axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-        this.props.getFriends(response.data.items);
-      });
-    };
-    window.addFriends = addFriends;
+  addFriends = () => {
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+      this.props.getFriends(response.data.items);
+    });
   };
 
   render() {
@@ -43,8 +40,13 @@ export default class LeftAsideFriendsItem extends Component {
       );
     });
     return (
-      <div className="hellow-content-left_aside-friends-items">
-        {elements}
+      <div>
+        <div className="hellow-content-left_aside-friends-items">
+          {elements}
+        </div>
+        <button onClick={this.addFriends} className="hellow-content-left_aside-friends-button">
+          больше
+        </button>
       </div>
     );
   };
