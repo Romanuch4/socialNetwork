@@ -1,4 +1,4 @@
-import LeftAsideFriendsItem from './hellow-content-left_aside-friends-item';
+import LeftAsideFriendsItemComponent from './hellow-content-left_aside-friends-item-Component';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -18,6 +18,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const LeftAsideFriendsItemContainer = connect(mapStateToProps ,mapDispatchToProps)(LeftAsideFriendsItem);
+const LeftAsideFriendsItemContainer = connect(mapStateToProps ,mapDispatchToProps)(LeftAsideFriendsItemComponent);
 
 export default LeftAsideFriendsItemContainer;
