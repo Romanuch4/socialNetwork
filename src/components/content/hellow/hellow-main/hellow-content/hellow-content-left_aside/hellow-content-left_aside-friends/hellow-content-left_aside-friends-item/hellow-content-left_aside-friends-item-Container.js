@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
   return {
     stateFriends: state.friends.friends,
+    isFetching: state.friends.isFetching,
   };
 };
 
@@ -13,6 +14,13 @@ const mapDispatchToProps = dispatch => {
       dispatch({
         type: 'GET-FRIENDS',
         friends: [...items],
+      });
+    },
+
+    toogleIsFetching: isFetching => {
+      dispatch({
+        type: 'TOOGLE_IS_FETCHING',
+        isFetching,
       });
     },
   };

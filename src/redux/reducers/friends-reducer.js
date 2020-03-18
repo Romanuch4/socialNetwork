@@ -38,6 +38,7 @@ const initialState = {
       id: 12, name: 'Karina3', online: false, image: 'Karina.jpg', birthday: '5.2'
     },
   ],
+  isFetching: false,
   searchFriendsText: "",
 }
 
@@ -52,6 +53,11 @@ const FriendsReducer = (state = initialState, action) => {
     return {
       ...state,
       friends: [...state.friends, ...action.friends],
+    };
+   } else if(action.type === 'TOOGLE_IS_FETCHING') {
+    return {
+      ...state,
+      isFetching: action.isFetching,
     };
    };
   return state;
