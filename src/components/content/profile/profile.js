@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Profile = () => {
+const Profile = ({person}) => {
   return (
    <div>
-     Profile...
+     {person.aboutMe}
+     <img src={person.photos.large} alt="avatar"/>
    </div>
   )
 };

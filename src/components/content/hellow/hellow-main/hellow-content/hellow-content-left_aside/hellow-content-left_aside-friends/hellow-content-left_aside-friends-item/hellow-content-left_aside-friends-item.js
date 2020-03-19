@@ -3,6 +3,7 @@ import './hellow-content-left_aside-friends-item.css';
 import avatar1 from '../../../../../../../../images/Roman.png';
 import avatar2 from '../../../../../../../../images/Max.jpg';
 import avatar3 from '../../../../../../../../images/Karina.jpg';
+import { NavLink } from 'react-router-dom';
 
 const LeftAsideFriendsItem = ({ stateFriends, addFriends }) => {
   let save;
@@ -23,11 +24,13 @@ const LeftAsideFriendsItem = ({ stateFriends, addFriends }) => {
     }
     return (
       <div className={className} key={item.id}>
-        <img
-          src={save}
-          alt={item.name}
-          className="hellow-content-left_aside-friends-item"
-        />
+        <NavLink to={`../../../profile/${item.id}`} >
+          <img
+            src={save}
+            alt={item.name}
+            className="hellow-content-left_aside-friends-item"
+          />
+        </NavLink>
       </div>
     );
   });

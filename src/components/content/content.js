@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Hellow from './hellow';
-import Profile from './profile';
+import ProfileContainer from './profile';
 import Exit from './exit';
 import Register from './register';
 import HellowBottom from './hellow/hellow-bottom';
@@ -16,7 +16,7 @@ const Content = ({state, dispatch}) => {
                                               stateFriends={state.friends} 
                                               searchFriendsText={state.searchFriendsText}
         />} />
-        <Route path='/profile' render={() => <Profile />} />
+        <Route path='/profile' render={() => <ProfileContainer />} />
         <Route path='/exit' render={() => <Exit />} />
         <Route exact path='/' render={()=> <Register />}/>
       </main>
