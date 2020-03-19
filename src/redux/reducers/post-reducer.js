@@ -1,13 +1,13 @@
 const initialState = {
   posts: [
     {
-      id: 1,
+      id: 0,
       text: 'Сегодня будет......',
       date: '15.02.2020, 21:29:59'/* new Date().toLocaleString() */,
     },
 
     {
-      id: 2,
+      id: 1,
       text: '123',
       date: '05.02.2020, 21:29:59',
     },
@@ -18,7 +18,7 @@ const initialState = {
 const PostReducer = (state = initialState, action) => {
   if (action.type === 'ADD-POSTS') {
     const newPost = {
-      id: 3,
+      id: state.posts.length + 1,
       text: action.text,
       date: new Date().toLocaleString(),
     };
