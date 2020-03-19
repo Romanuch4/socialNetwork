@@ -1,4 +1,5 @@
 import HellowTopPostArea from './hellow-top-post-textarea';
+import {addPosts, updatePostTexts} from '../../../../../../redux/reducers/post-reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -7,23 +8,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addPosts: text => {
-      dispatch({
-        type: 'ADD-POSTS',
-        text: text,
-      });
-    },
-    updatePostTexts: text => {
-      dispatch({
-        type: 'UPDATE-POST-TEXTS',
-        text: text,
-      });
-    },
-  };
-};
-
-const HellowTopPostAreaContainer = connect(mapStateToProps ,mapDispatchToProps)(HellowTopPostArea);
+const HellowTopPostAreaContainer = connect(mapStateToProps ,{addPosts, updatePostTexts})(HellowTopPostArea);
 
 export default HellowTopPostAreaContainer;

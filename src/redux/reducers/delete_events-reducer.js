@@ -46,4 +46,11 @@ const deleteEventsReducer = (state = initialState, action) => {
   return state;
 };
 
+export const deleteEvents = text => {
+  return {
+    type: 'DELETE-EVENTS',
+    text: text,
+  }
+};
+
 export default deleteEventsReducer;

@@ -1,4 +1,5 @@
 import RightAsideContent from './hellow-content-right_aside-content';
+import {deleteEvents} from '../../../../../../../redux/reducers/delete_events-reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -7,17 +8,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteEvents: text => {
-      dispatch({
-        type: 'DELETE-EVENTS',
-        text: text,
-      });
-    },
-  };
-};
-
-const RightAsideContentContainer = connect(mapStateToProps, mapDispatchToProps)(RightAsideContent);
+const RightAsideContentContainer = connect(mapStateToProps, {deleteEvents})(RightAsideContent);
 
 export default RightAsideContentContainer;

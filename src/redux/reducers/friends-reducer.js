@@ -63,4 +63,25 @@ const FriendsReducer = (state = initialState, action) => {
   return state;
 };
 
+export const getFriends = items => {
+  return {
+    type: 'GET-FRIENDS',
+    friends: [...items],
+  };
+};
+
+export const toogleIsFetching = isFetching => {
+  return {
+    type: 'TOOGLE_IS_FETCHING',
+    isFetching,
+  };
+};
+
+export const changeInputValues = text => {
+  return {
+    type: 'UPDATE-FRIENDS-TEXTS',
+    text: text,
+  };
+};
+
 export default FriendsReducer;

@@ -1,4 +1,5 @@
 import LeftAsideFriendsSearch from './hellow-content-left_aside-friends-search';
+import {changeInputValues} from '../../../../../../../../redux/reducers/friends-reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -7,17 +8,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeInputValues: text => {
-      dispatch({
-        type: 'UPDATE-FRIENDS-TEXTS',
-        text: text,
-      });
-    },
-  };
-};
-
-const LeftAsideFriendsSearchContainer = connect(mapStateToProps ,mapDispatchToProps)(LeftAsideFriendsSearch);
+const LeftAsideFriendsSearchContainer = connect(mapStateToProps , {changeInputValues})(LeftAsideFriendsSearch);
 
 export default LeftAsideFriendsSearchContainer;

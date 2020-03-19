@@ -36,4 +36,18 @@ const PostReducer = (state = initialState, action) => {
   return state;
 };
 
+export const addPosts = text => {
+  return {
+    type: 'ADD-POSTS',
+    text: text,
+  };
+};
+
+export const updatePostTexts = text => {
+  return {
+    type: 'UPDATE-POST-TEXTS',
+    text: text,
+  };
+};
+
 export default PostReducer;
