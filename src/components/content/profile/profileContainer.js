@@ -16,7 +16,6 @@ class ProfileComponent extends Component {
     this.props.toogleIsFetching(true);
     axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then(response => {
-        console.log(response.data)
         this.props.toogleIsFetching(false);
         this.props.getUser(response.data);
       });

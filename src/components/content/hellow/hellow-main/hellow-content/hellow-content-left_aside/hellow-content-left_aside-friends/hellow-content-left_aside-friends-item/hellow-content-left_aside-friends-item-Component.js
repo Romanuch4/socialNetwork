@@ -5,7 +5,7 @@ import Preloader from '../../../../../../common/preloader';
 
 export default class LeftAsideFriendsItemComponent extends Component {
   componentDidMount = () => {
-    axios.get("https://social-network.samuraijs.com/api/1.0/users?count=2&page=1")
+    axios.get("https://social-network.samuraijs.com/api/1.0/users?count=10&page=1")
       .then(response => {
         this.props.getStartFriends(response.data.items);
       });
@@ -13,10 +13,11 @@ export default class LeftAsideFriendsItemComponent extends Component {
 
   addFriends = () => {
     this.props.toogleIsFetching(true);
-    axios.get("https://social-network.samuraijs.com/api/1.0/users?count=10&page=2").then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=10&page=${this.props.count}`).then(response => {
       this.props.toogleIsFetching(false);
       this.props.getFriends(response.data.items);
     });
+    this.props.changeCount();
   };
 
   render() {

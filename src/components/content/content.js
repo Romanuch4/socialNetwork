@@ -8,20 +8,20 @@ import HellowBottom from './hellow/hellow-bottom';
 
 const Content = ({state, dispatch}) => {
   return (
-      <div>
+      <>
         <main className="main">
-        <Route path='/hellow' render={() => <Hellow 
-                                              dispatch={dispatch} 
-                                              statePosts={state.posts.posts}
-                                              stateFriends={state.friends} 
-                                              searchFriendsText={state.searchFriendsText}
-        />} />
-        <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-        <Route path='/exit' render={() => <Exit />} />
-        <Route exact path='/' render={()=> <Register />}/>
-      </main>
+          <Route path='/hellow' render={() => <Hellow 
+                                                dispatch={dispatch} 
+                                                statePosts={state.posts.posts}
+                                                stateFriends={state.friends} 
+                                                searchFriendsText={state.searchFriendsText}
+          />} />
+          <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+          <Route path='/exit' render={() => <Exit />} />
+          <Route exact path='/' render={()=> <Register />}/>
+        </main>
         <HellowBottom />
-      </div>
+      </>
   )
 };
 

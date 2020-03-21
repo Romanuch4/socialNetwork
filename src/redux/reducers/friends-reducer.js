@@ -1,14 +1,15 @@
 const initialState = {
   friends: [
     {
-      id: 0, name: 'Roman', online: true, image: 'Roman.png', birthday: '21.2'
+      id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '21.2'
     },
     {
-      id: 1, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '21.2'
+      id: 2, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '21.2'
     },
   ],
   isFetching: false,
   searchFriendsText: "",
+  count: 2,
 }
 
 const FriendsReducer = (state = initialState, action) => {
@@ -32,6 +33,12 @@ const FriendsReducer = (state = initialState, action) => {
     return {
       ...state,
       friends: [...state.friends, ...action.friends],
+    };
+  } else if (action.type === 'CHANGE-COUNT') {
+    count++;
+    return {
+      ...state,
+      count,
     };
   };
   return state;
@@ -70,7 +77,14 @@ export const toogleIsFetching = isFetching => {
 export const changeInputValues = text => {
   return {
     type: 'UPDATE-FRIENDS-TEXTS',
-    text: text,
+    text,
+  };
+};
+
+export const changeCount = () => {
+  return {
+    type: 'CHANGE-COUNT',
+    count: count++,
   };
 };
 
