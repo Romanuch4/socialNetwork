@@ -16,7 +16,7 @@ const Content = ({state, dispatch}) => {
                                               stateFriends={state.friends} 
                                               searchFriendsText={state.searchFriendsText}
         />} />
-        <Route path='/profile' render={() => <ProfileContainer />} />
+        <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
         <Route path='/exit' render={() => <Exit />} />
         <Route exact path='/' render={()=> <Register />}/>
       </main>

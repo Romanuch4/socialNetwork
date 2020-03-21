@@ -5,11 +5,16 @@ import Profile from './profile';
 import Preloader from '../common/preloader';
 import {toogleIsFetching} from '../../../redux/reducers/friends-reducer';
 import {getUser} from '../../../redux/reducers/profile-reducer';
+import { withRouter } from 'react-router-dom';
 
 class ProfileComponent extends Component {
   componentDidMount = () => {
+    let userId = this.props.match.params.userId;
+    if (userId === undefined) {
+      userId = 2;
+    }
     this.props.toogleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${2}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then(response => {
         console.log(response.data)
         this.props.toogleIsFetching(false);
@@ -34,6 +39,7 @@ const mapStateToProps = state => {
   };
 };
 
-const ProfileContainer = connect(mapStateToProps, {toogleIsFetching, getUser})(ProfileComponent);
+const WithUrlContainerComponent = withRouter(ProfileComponent);
+const ProfileContainer = connect(mapStateToProps, {toogleIsFetching, getUser})(WithUrlContainerComponent);
 
 export default ProfileContainer;

@@ -5,6 +5,7 @@ const Profile = ({person}) => {
    <div>
      {person.aboutMe}
      <img src={person.photos.large} alt="avatar"/>
+     {person.fullName}
    </div>
   )
 };

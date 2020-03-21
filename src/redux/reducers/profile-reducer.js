@@ -4,7 +4,8 @@ const initialState = {
     photos: {
       large: '1231231232',
       small: '123wwerwer',
-    }
+    },
+    fullName: 'The best',
   },
 }
 

@@ -12,7 +12,7 @@ const Header = () => {
         <label className="label open" htmlFor="menu">
           <i className="fa fa-bars"></i>
         </label>
-        <HeaderNav></HeaderNav>
+        <HeaderNav />
       </div>
     </header>
   )
