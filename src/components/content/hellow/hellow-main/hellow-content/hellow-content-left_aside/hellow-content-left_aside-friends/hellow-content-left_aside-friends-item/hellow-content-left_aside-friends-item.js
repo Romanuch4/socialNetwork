@@ -1,8 +1,7 @@
 import React from 'react';
 import './hellow-content-left_aside-friends-item.css';
 import avatar1 from '../../../../../../../../images/Roman.png';
-import avatar2 from '../../../../../../../../images/Max.jpg';
-import avatar3 from '../../../../../../../../images/Karina.jpg';
+import avatar2 from '../../../../../../../../images/Karina.jpg';
 import { NavLink } from 'react-router-dom';
 
 const LeftAsideFriendsItem = ({ stateFriends, addFriends }) => {
@@ -10,10 +9,10 @@ const LeftAsideFriendsItem = ({ stateFriends, addFriends }) => {
   const elements = stateFriends.map(item => {
     if (item.image === "Roman.png") {
       save = avatar1;
-    } else if (item.image === "Max.jpg") {
-      save = avatar2;
     } else if (item.image === "Karina.jpg") {
-      save = avatar3;
+      save = avatar2;
+    } else {
+      save = avatar1;
     };
 
     let className;

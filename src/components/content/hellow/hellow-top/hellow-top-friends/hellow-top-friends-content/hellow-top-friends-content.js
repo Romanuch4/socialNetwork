@@ -1,8 +1,7 @@
 import React from 'react';
 import './hellow-top-friends-content.css';
 import image1 from '../../../../../../images/Roman.png';
-import image2 from '../../../../../../images/Max.jpg';
-import image3 from '../../../../../../images/Karina.jpg';
+import image2 from '../../../../../../images/Karina.jpg';
 import imageDefault from './image-default/src-default.png';
 
 const HellowTopPFriendsContent = ({ stateFriends }) => {
@@ -13,10 +12,8 @@ const HellowTopPFriendsContent = ({ stateFriends }) => {
     if (item.birthday === birthday) {
       if (item.image === 'Roman.png') {
         src = image1;
-      } else if (item.image === 'Max.jpg') {
-        src = image2;
       } else if (item.image === 'Karina.jpg') {
-        src = image3;
+        src = image2;
       } else {
         src = imageDefault;
       }

@@ -1,5 +1,5 @@
 import LeftAsideFriendsItemComponent from './hellow-content-left_aside-friends-item-Component';
-import {getFriends, toogleIsFetching} from '../../../../../../../../redux/reducers/friends-reducer';
+import {getFriends, toogleIsFetching, getStartFriends} from '../../../../../../../../redux/reducers/friends-reducer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -10,6 +10,6 @@ const mapStateToProps = state => {
 };
 
 const LeftAsideFriendsItemContainer = connect
-  (mapStateToProps ,{ getFriends, toogleIsFetching })(LeftAsideFriendsItemComponent);
+  (mapStateToProps ,{ getFriends, toogleIsFetching, getStartFriends })(LeftAsideFriendsItemComponent);
 
 export default LeftAsideFriendsItemContainer;
