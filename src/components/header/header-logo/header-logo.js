@@ -1,10 +1,10 @@
 import React from 'react';
 import './header-logo.css';
 
-const HeaderLogo = () => {
+const HeaderLogo = ({login}) => {
   return (
     <div className="header-logo">
-      uPublic
+      uPublic <span className="header-logo-span">{login}</span>
     </div>
   )
 }

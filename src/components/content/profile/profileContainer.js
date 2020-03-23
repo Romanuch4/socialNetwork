@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as axios from 'axios';
 import Profile from './profile';
 import Preloader from '../common/preloader';
+import {getData} from '../../../api/api';
 import {toogleIsFetching} from '../../../redux/reducers/friends-reducer';
 import {getUser} from '../../../redux/reducers/profile-reducer';
 import { withRouter } from 'react-router-dom';
@@ -14,10 +14,10 @@ class ProfileComponent extends Component {
       userId = 2;
     }
     this.props.toogleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+    getData.getProfile(userId)
       .then(response => {
         this.props.toogleIsFetching(false);
-        this.props.getUser(response.data);
+        this.props.getUser(response);
       });
   };
 

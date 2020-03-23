@@ -3,10 +3,10 @@ import './App.css';
 import Header from './components/header';
 import Content from './components/content';
 
-function App({store, dispatch}) {
+function App({store, dispatch, login}) {
   return (
       <div className="App">
-        <Header />
+        <Header login={login} />
         <Content dispatch={dispatch} state={store}/>
       </div>
   );
