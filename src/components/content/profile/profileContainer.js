@@ -2,23 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Profile from './profile';
 import Preloader from '../common/preloader';
-import {getData} from '../../../api/api';
 import {toogleIsFetching} from '../../../redux/reducers/friends-reducer';
-import {getUser} from '../../../redux/reducers/profile-reducer';
+import {getProfileThunkCreator} from '../../../redux/reducers/profile-reducer';
 import { withRouter } from 'react-router-dom';
 
 class ProfileComponent extends Component {
   componentDidMount = () => {
-    let userId = this.props.match.params.userId;
-    if (userId === undefined) {
-      userId = 2;
-    }
-    this.props.toogleIsFetching(true);
-    getData.getProfile(userId)
-      .then(response => {
-        this.props.toogleIsFetching(false);
-        this.props.getUser(response);
-      });
+    this.props.getProfileThunkCreator(this.props.match.params.userId);
   };
 
   render = () => {
@@ -39,6 +29,6 @@ const mapStateToProps = state => {
 };
 
 const WithUrlContainerComponent = withRouter(ProfileComponent);
-const ProfileContainer = connect(mapStateToProps, {toogleIsFetching, getUser})(WithUrlContainerComponent);
+const ProfileContainer = connect(mapStateToProps, {toogleIsFetching, getProfileThunkCreator})(WithUrlContainerComponent);
 
 export default ProfileContainer;

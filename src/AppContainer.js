@@ -1,22 +1,11 @@
 import App from './App';
-import {setUserData} from './redux/reducers/auth-reducer';
-import {getData} from './api/api';
+import { getProfileThunkCreator } from './redux/reducers/auth-reducer';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
 class AppComponent extends Component {
   componentDidMount = () => {
-    getData.getUser()
-      .then(response => {
-        if (response.resultCode === 0) {
-          this.props.setUserData( 
-            response.data.id, 
-            response.data.email, 
-            response.data.login,
-          );
-          
-        };
-      });
+    this.props.getProfileThunkCreator();
   };
 
 
@@ -29,11 +18,10 @@ class AppComponent extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuth: state.auth.isAuth,
     login: state.auth.login,
   };
 };
 
-const AppContainer = connect(mapStateToProps, { setUserData })(AppComponent);
+const AppContainer = connect(mapStateToProps, { getProfileThunkCreator })(AppComponent);
 
 export default AppContainer;

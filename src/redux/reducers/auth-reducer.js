@@ -1,3 +1,5 @@
+import {getData} from '../../api/api';
+
 const initialState = {
   userId: null,
   email: null,
@@ -26,6 +28,21 @@ export const setUserData = (userId, email, login) => {
       login,
     },
   };
+};
+
+
+export const getProfileThunkCreator = () => dispatch => {
+  getData.getUser()
+      .then(response => {
+        if (response.resultCode === 0) {
+          dispatch(setUserData( 
+            response.data.id, 
+            response.data.email, 
+            response.data.login,
+          )
+        );  
+      };
+  });
 };
 
 export default authReducer;

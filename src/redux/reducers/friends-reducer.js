@@ -1,10 +1,12 @@
+import {getData} from '../../api/api';
+
 const initialState = {
   friends: [
     {
-      id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '21.2'
+      id: 1, name: 'Roman', online: true, image: 'Roman.png', birthday: '24.2'
     },
     {
-      id: 2, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '21.2'
+      id: 2, name: 'Karina', online: true, image: 'Karina.jpg', birthday: '24.2'
     },
   ],
   isFetching: false,
@@ -86,6 +88,23 @@ export const changeCount = () => {
     type: 'CHANGE-COUNT',
     count: count++,
   };
+};
+
+export const getStartFriendsThunkCreator = () => dispatch => {
+  getData.getFriends(null)
+    .then(response => {
+      dispatch(getStartFriends(response.items));
+  });
+};
+
+export const getFriendsThunkCreator = count => dispatch => {
+  dispatch(toogleIsFetching(true));
+    getData.getFriends(count)
+    .then(response => {
+      dispatch(toogleIsFetching(false)); 
+      dispatch(getFriends(response.items));
+    });
+    dispatch(changeCount());
 };
 
 export default FriendsReducer;
