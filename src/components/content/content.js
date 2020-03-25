@@ -6,7 +6,7 @@ import Exit from './exit';
 import Register from './register';
 import HellowBottom from './hellow/hellow-bottom';
 
-const Content = ({state, dispatch}) => {
+const Content = ({state, isAuth, dispatch}) => {
   return (
       <>
         <main className="main">
@@ -15,10 +15,11 @@ const Content = ({state, dispatch}) => {
                                                 statePosts={state.posts.posts}
                                                 stateFriends={state.friends} 
                                                 searchFriendsText={state.searchFriendsText}
+                                                isAuth={isAuth}
           />} />
           <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
           <Route path='/exit' render={() => <Exit />} />
-          <Route exact path='/' render={()=> <Register />}/>
+          <Route path='/login' render={()=> <Register isAuth={isAuth}/>} />
         </main>
         <HellowBottom />
       </>

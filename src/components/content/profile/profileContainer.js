@@ -25,6 +25,7 @@ const mapStateToProps = state => {
   return {
     isFetching: state.friends.isFetching,
     person: state.profile.person,
+    isAuth: state.auth.isAuth,
   };
 };
 
