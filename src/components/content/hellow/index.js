@@ -1,3 +1,3 @@
-import Hellow from './hellow';
+import HellowContainer from './hellowContainer';
 
-export default Hellow;
+export default HellowContainer;

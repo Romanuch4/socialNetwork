@@ -5,6 +5,7 @@ import Preloader from '../common/preloader';
 import {toogleIsFetching} from '../../../redux/reducers/friends-reducer';
 import {getProfileThunkCreator} from '../../../redux/reducers/profile-reducer';
 import { withRouter } from 'react-router-dom';
+import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 
 class ProfileComponent extends Component {
   componentDidMount = () => {
@@ -25,11 +26,12 @@ const mapStateToProps = state => {
   return {
     isFetching: state.friends.isFetching,
     person: state.profile.person,
-    isAuth: state.auth.isAuth,
   };
 };
 
-const WithUrlContainerComponent = withRouter(ProfileComponent);
+const AuthRedirectComponent = WithAuthRedirect(ProfileComponent);
+
+const WithUrlContainerComponent = withRouter(AuthRedirectComponent);
 const ProfileContainer = connect(mapStateToProps, {toogleIsFetching, getProfileThunkCreator})(WithUrlContainerComponent);
 
 export default ProfileContainer;
