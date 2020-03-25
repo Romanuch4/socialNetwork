@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Hellow from './hellow';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
+import { compose } from 'redux';
 
 class HellowComponent extends Component {
   render = () => {
@@ -19,7 +20,4 @@ const mapStateToProps = state => {
   };
 };
 
-const AuthRedirectComponent = WithAuthRedirect(HellowComponent);
-const hellowContainer = connect(mapStateToProps)(AuthRedirectComponent);
-
-export default hellowContainer;
+export default compose( connect(mapStateToProps),WithAuthRedirect)(HellowComponent);
