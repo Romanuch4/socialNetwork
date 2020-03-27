@@ -30,13 +30,6 @@ const mapStateToProps = state => {
   };
 };
 
-/* const AuthRedirectComponent = WithAuthRedirect(ProfileComponent);
-
-const WithUrlContainerComponent = withRouter(AuthRedirectComponent);
-const ProfileContainer = connect(mapStateToProps, {toogleIsFetching, getProfileThunkCreator})(WithUrlContainerComponent);
-
-export default ProfileContainer; */
-
 export default compose(
   connect(mapStateToProps, {toogleIsFetching, getProfileThunkCreator}), 
   withRouter, 
