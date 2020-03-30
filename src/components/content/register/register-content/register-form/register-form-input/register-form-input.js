@@ -1,5 +1,6 @@
 import React from 'react';
 import './register-form-input.css'
+import { Field } from 'redux-form';
 
 const RegisterFormInput = ({type, name, label, id}) => {
   return (
@@ -7,13 +8,14 @@ const RegisterFormInput = ({type, name, label, id}) => {
       <label htmlFor={id} className="register-form-label">
         {label}
       </label>
-      <input 
+      <Field 
+        component={"input"}
         placeholder={label}
         name={name} 
         type={type} 
         id={id} 
         className="register-form-input"
-        required/>
+        required />
     </div>
   )
 };

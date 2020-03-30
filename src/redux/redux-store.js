@@ -5,6 +5,7 @@ import deleteEventsReducer from './reducers/delete_events-reducer';
 import ProfileReducer from './reducers/profile-reducer';
 import authReducer from './reducers/auth-reducer';
 import thunkMiddleware from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form';
 
 let reducers = combineReducers({
   posts: PostReducer,
@@ -12,6 +13,7 @@ let reducers = combineReducers({
   events: deleteEventsReducer,
   profile: ProfileReducer,
   auth: authReducer,
+  form: formReducer,
 })
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

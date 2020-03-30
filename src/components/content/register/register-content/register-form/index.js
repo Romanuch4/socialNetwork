@@ -1,3 +1,3 @@
-import RegisterForm from './register-form';
+import AuthReduxForm from './register-form';
 
-export default RegisterForm;
+export default AuthReduxForm;
