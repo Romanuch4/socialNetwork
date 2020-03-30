@@ -10,6 +10,7 @@ const initialState = {
     fullName: 'The best',
   },
   isFetching: false,
+  status: "",
 }
 
 const ProfileReducer = (state = initialState, action) => {
@@ -22,6 +23,11 @@ const ProfileReducer = (state = initialState, action) => {
     return {
       ...state,
       isFetching: action.isFetching,
+    };
+  } else if (action.type === 'SET-STATUS') {
+    return {
+      ...state,
+      status: action.status,
     };
   };
   return state;
@@ -41,6 +47,13 @@ export const toogleIsFetching = isFetching => {
   };
 };
 
+export const setStatus = status => {
+  return {
+    type: 'SET-STATUS',
+    status,
+  };
+};
+
 export const getProfileThunkCreator = user => dispatch => {
   let userId = user;
     if (userId === undefined) {
@@ -53,6 +66,20 @@ export const getProfileThunkCreator = user => dispatch => {
         dispatch(getUser(response));
       }
     );
+};
+
+export const getStatusThunkCreator = userId => dispatch => {
+  getData.getStatus(userId)
+  .then(response => {
+    dispatch(setStatus(response));
+  });
+};
+
+export const updateStatusThunkCreator = status => dispatch => {
+  getData.updateStatus(status)
+  .then(() => {
+    dispatch(setStatus(status));
+  });
 };
 
 export default ProfileReducer;

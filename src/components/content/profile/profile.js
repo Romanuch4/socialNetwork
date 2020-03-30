@@ -6,7 +6,7 @@ import ProfileImg from './profile-img';
 import ProfileName from './profile-name';
 import ProfileJob from './profile-job';
 
-const Profile = ({ person, }) => {
+const Profile = ({ person, status, updateStatusThunkCreator}) => {
   return (
     <div className="profile">
       <div className="profile-content">
@@ -14,7 +14,7 @@ const Profile = ({ person, }) => {
       <ProfileName name={person.fullName} />
       <ProfileAbout about={person.aboutMe} />
       <ProfileJob jobDescription={person.lookingForAJobDescription} />
-      <ProfileStatus status={"Hellow, my friends"} />
+      <ProfileStatus updateStatus={updateStatusThunkCreator} status={status} />
       </div>
     </div>
   )

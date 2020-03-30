@@ -21,4 +21,13 @@ export const getData = {
     return instanceRequest.get(`profile/${userId}`)
     .then(response => response.data);
   },
+
+  getStatus(userId) {
+    return instanceRequest.get(`profile/status/${userId}`)
+    .then(response => response.data);
+  },
+
+  updateStatus(status) {
+    return instanceRequest.put('profile/status/', {status})
+  },
 };
