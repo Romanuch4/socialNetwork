@@ -12,7 +12,6 @@ const initialState = {
       date: '05.02.2020, 21:29:59',
     },
   ],
-  newPostText: "",
 }
 
 const PostReducer = (state = initialState, action) => {
@@ -25,12 +24,6 @@ const PostReducer = (state = initialState, action) => {
     return {
       ...state,
       posts: [...state.posts, newPost],
-      newPostText: "",
-    };
-  } else if(action.type === 'UPDATE-POST-TEXTS') {
-    return {
-      ...state,
-      newPostText: action.text,
     };
   };
   return state;
@@ -39,13 +32,6 @@ const PostReducer = (state = initialState, action) => {
 export const addPosts = text => {
   return {
     type: 'ADD-POSTS',
-    text: text,
-  };
-};
-
-export const updatePostTexts = text => {
-  return {
-    type: 'UPDATE-POST-TEXTS',
     text: text,
   };
 };

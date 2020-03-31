@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Hellow from './hellow';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
+import {addPosts} from '../../../redux/reducers/post-reducer';
 import { compose } from 'redux';
 
 class HellowComponent extends Component {
   render = () => {
     return (
-      <Hellow {...this.props} />
+      <Hellow {...this.props} />//dispath
     )
   }
 };
@@ -20,4 +21,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default compose( connect(mapStateToProps),WithAuthRedirect)(HellowComponent);
+export default compose( connect(mapStateToProps, {addPosts}),WithAuthRedirect)(HellowComponent);

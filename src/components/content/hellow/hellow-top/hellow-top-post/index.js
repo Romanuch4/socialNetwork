@@ -1,3 +1,3 @@
-import HellowTopPost from './hellow-top-post';
+import PostReduxForm from './hellow-top-post';
 
-export default HellowTopPost;
+export default PostReduxForm;
