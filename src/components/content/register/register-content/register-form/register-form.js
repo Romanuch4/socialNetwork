@@ -1,19 +1,42 @@
 import React from 'react';
-import RegisterFormInput from './register-form-input/register-form-input';
-import RegisterFormRadio from './register-form-radio';
 import RegisterFormButton from './register-form-button';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
+import { required, minLengthCreator, email, maxLengthCreator } from '../../../../../utils/validators';
+import renderField from './register-form-renderField';
+import './register-form.css';
 
-const RegisterForm = ({handleSubmit}) => {
-  const input1 = "name";
-  const input2 = "email"
-  const input3 = "password"
+const maxLength15 = maxLengthCreator(15);
+
+const minLength2 = minLengthCreator(2);
+const minLength6 = minLengthCreator(6);
+
+const RegisterForm = ({ handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <RegisterFormInput label="Name" id={input1} type="text" name={input1} />
-      <RegisterFormInput label="Email" id={input2} type={input2} name={input2} />
-      <RegisterFormInput label="Password" id={input3} type={input3} name={input3} />
-      <RegisterFormRadio />
+      <Field
+        name="username"
+        type="text"
+        component={renderField}
+        label="Username"
+        validate={[required, maxLength15, minLength2]}
+        className="register-form-input"
+      />
+      <Field
+        name="email"
+        type="email"
+        component={renderField}
+        label="Email"
+        validate={[email, required]}
+        className="register-form-input"
+      />
+      <Field
+        name="password"
+        type="password"
+        component={renderField}
+        label="Password"
+        validate={[required, minLength6]}
+        className="register-form-input"
+      />
       <RegisterFormButton />
     </form>
   )
