@@ -6,18 +6,17 @@ import Register from './register';
 import HellowBottom from './hellow/hellow-bottom';
 import HellowContainer from './hellow';
 
-const Content = ({ isAuth }) => {
+const Content = ({ isAuth, login, logout }) => {
   return (
-      <>
-        <main className="main">
-          <Route path='/hellow' render={() => <HellowContainer />} 
-          />
-          <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-          <Route path='/exit' render={() => <Exit />} />
-          <Route path='/login' render={()=> <Register isAuth={isAuth}/>} />
-        </main>
-        <HellowBottom />
-      </>
+    <>
+      <main className="main">
+        <Route path='/hellow' render={() => <HellowContainer />} />
+        <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+        <Route path='/exit' render={() => <Exit isAuth={isAuth} logout={logout} />} />
+        <Route path='/login' render={() => <Register login={login} isAuth={isAuth} />} />
+      </main>
+      <HellowBottom />
+    </>
   )
 };
 

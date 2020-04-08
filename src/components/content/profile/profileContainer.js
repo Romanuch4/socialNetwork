@@ -12,11 +12,13 @@ import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/
 class ProfileComponent extends Component {
   
   componentDidMount = () => {
-    if (this.props.match.params.userId <= 1) {
-      this.props.match.params.userId = 6458;
+    let userId = this.props.match.params.userId;
+    if (userId === "1" || !userId) {
+      userId = this.props.userId;
     }
-    this.props.getProfileThunkCreator(this.props.match.params.userId);
-    this.props.getStatusThunkCreator(this.props.match.params.userId);    
+
+    this.props.getProfileThunkCreator(userId);
+    this.props.getStatusThunkCreator(userId);    
   };
 
   render = () => {
@@ -33,6 +35,7 @@ const mapStateToProps = state => {
   return {
     person: state.profile.person,
     status: state.profile.status,
+    userId: state.auth.userId,
   };
 };
 

@@ -1,5 +1,5 @@
 import App from './App';
-import { getProfileThunkCreator } from './redux/reducers/auth-reducer';
+import { getProfileThunkCreator, loginThunkCreator, logoutThunkCreator } from './redux/reducers/auth-reducer';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
@@ -23,6 +23,9 @@ const mapStateToProps = state => {
   };
 };
 
-const AppContainer = connect(mapStateToProps, { getProfileThunkCreator })(AppComponent);
+const AppContainer = connect(mapStateToProps, { getProfileThunkCreator,
+                                                loginThunkCreator,
+                                                logoutThunkCreator
+                                              })(AppComponent);
 
 export default AppContainer;

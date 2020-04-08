@@ -30,4 +30,12 @@ export const getData = {
   updateStatus(status) {
     return instanceRequest.put('profile/status/', {status})
   },
+
+  login(email, password, rememberMe = false) {
+    return instanceRequest.post('auth/login', {email, password, rememberMe});
+  },
+
+  logout() {
+    return instanceRequest.delete('auth/login');
+  },
 };

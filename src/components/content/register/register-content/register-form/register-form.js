@@ -1,26 +1,15 @@
 import React from 'react';
 import RegisterFormButton from './register-form-button';
 import { reduxForm, Field } from 'redux-form';
-import { required, minLengthCreator, email, maxLengthCreator } from '../../../../../utils/validators';
+import { required, minLengthCreator, email, } from '../../../../../utils/validators';
 import renderField from './register-form-renderField';
 import './register-form.css';
 
-const maxLength15 = maxLengthCreator(15);
-
-const minLength2 = minLengthCreator(2);
 const minLength6 = minLengthCreator(6);
 
-const RegisterForm = ({ handleSubmit }) => {
+const RegisterForm = ({ handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <Field
-        name="username"
-        type="text"
-        component={renderField}
-        label="Username"
-        validate={[required, maxLength15, minLength2]}
-        className="register-form-input"
-      />
       <Field
         name="email"
         type="email"
@@ -38,6 +27,7 @@ const RegisterForm = ({ handleSubmit }) => {
         className="register-form-input"
       />
       <RegisterFormButton />
+      {error && <div className="register-form-error error">{error}</div>}
     </form>
   )
 };

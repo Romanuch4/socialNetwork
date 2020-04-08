@@ -5,10 +5,10 @@ const RegisterSubTitle = () => {
   return (
     <div>
       <h3 className="register-sub-title">
-        Sign Up
+        LogIn
       </h3>
       <h4 className="register-description">
-        Want to sign up fill out this form!
+        Want to login fill out this form!
       </h4>
     </div>
   )

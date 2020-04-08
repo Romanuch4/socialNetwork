@@ -16,6 +16,6 @@ const renderField = ({
       </div>
     </label>
   </div>
-)
+);
 
 export default renderField;

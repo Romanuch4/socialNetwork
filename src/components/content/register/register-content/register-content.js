@@ -3,10 +3,11 @@ import './register-content.css';
 import RegisterSubTitle from './register-sub-title';
 import AuthReduxForm from './register-form';
 
-const RegisterContent = () => {
+const RegisterContent = ({ login }) => {
   const onSubmit = formData => {
-    console.log(formData);
-  }
+    const {email, password} = formData;
+    login(email, password, false)
+  };
 
   return (
     <section className="register-content">

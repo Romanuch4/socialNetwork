@@ -45,6 +45,10 @@ textarea {
   box-shadow: 0px 0px 10px 0px rgba(66, 92, 142, 0.85);
 }
 
+.register-form-error {
+  margin-top: 20px;
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 490px) {
   .register-form-input {
