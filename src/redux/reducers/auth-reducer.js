@@ -33,7 +33,7 @@ export const setUserData = (userId, email, login, isAuth) => {
 
 
 export const getProfileThunkCreator = () => dispatch => {
-  getData.getUser()
+  return getData.getUser()
     .then(response => {
       if (response.resultCode === 0) {
         dispatch(setUserData(

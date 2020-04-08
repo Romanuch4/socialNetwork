@@ -6,6 +6,7 @@ import ProfileReducer from './reducers/profile-reducer';
 import authReducer from './reducers/auth-reducer';
 import thunkMiddleware from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form';
+import appReducer from './reducers/app-reducer';
 
 const reducers = combineReducers({
   posts: PostReducer,
@@ -13,6 +14,7 @@ const reducers = combineReducers({
   events: deleteEventsReducer,
   profile: ProfileReducer,
   auth: authReducer,
+  app: appReducer,
   form: formReducer,
 })
 

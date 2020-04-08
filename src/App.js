@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/header';
 import Content from './components/content';
 
-function App({ isAuth, login, loginThunkCreator, logoutThunkCreator}) {
+function App({ isAuth, login, loginThunkCreator, logoutThunkCreator, initialized}) {
   return (
       <div className="App">
         <Header login={login} />
