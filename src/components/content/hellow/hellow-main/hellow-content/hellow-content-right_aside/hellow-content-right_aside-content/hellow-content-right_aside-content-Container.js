@@ -1,10 +1,11 @@
 import RightAsideContent from './hellow-content-right_aside-content';
 import {deleteEvents} from '../../../../../../../redux/reducers/delete_events-reducer';
 import { connect } from 'react-redux';
+import { getEvents } from '../../../../../../../redux/selectors';
 
 const mapStateToProps = state => {
   return {
-    stateEvents: state.events,
+    stateEvents: getEvents(state),
   };
 };
 

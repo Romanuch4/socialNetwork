@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import { compose } from 'redux';
 import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/reducers/profile-reducer';
+import { getPerson, getStatus, getUserId } from '../../../redux/selectors';
 
 class ProfileComponent extends Component {
   
@@ -33,9 +34,9 @@ class ProfileComponent extends Component {
 
 const mapStateToProps = state => {
   return {
-    person: state.profile.person,
-    status: state.profile.status,
-    userId: state.auth.userId,
+    person: getPerson(state),
+    status: getStatus(state),
+    userId: getUserId(state),
   };
 };
 

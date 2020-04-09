@@ -5,6 +5,7 @@ import { initializedApp } from "./redux/reducers/app-reducer";
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Preloader from './components/content/common/preloader';
+import { getLogin, getIsAuth, getInitialized } from './redux/selectors';
 
 class AppComponent extends Component {
   componentDidMount = () => {
@@ -14,7 +15,6 @@ class AppComponent extends Component {
 
   render() {
     if (!this.props.initialized) {
-      debugger
       return <Preloader />
     }
     return (
@@ -25,9 +25,9 @@ class AppComponent extends Component {
 
 const mapStateToProps = state => {
   return {
-    login: state.auth.login,
-    isAuth: state.auth.isAuth,
-    initialized: state.app.initialized,
+    login: getLogin(state),
+    isAuth: getIsAuth(state),
+    initialized: getInitialized(state),
   };
 };
 

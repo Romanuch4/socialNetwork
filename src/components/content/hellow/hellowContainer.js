@@ -4,6 +4,7 @@ import Hellow from './hellow';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import {addPosts} from '../../../redux/reducers/post-reducer';
 import { compose } from 'redux';
+import { getSearchFriendsText, getPosts, getFriend } from '../../../redux/selectors';
 
 class HellowComponent extends Component {
   render = () => {
@@ -15,9 +16,9 @@ class HellowComponent extends Component {
 
 const mapStateToProps = state => {
   return {
-    stateFriends: state.friends.friends,
-    statePosts: state.posts.posts,
-    searchFriendsText: state.friends.searchFriendsText,
+    stateFriends: getFriend(state),
+    statePosts: getPosts(state),
+    searchFriendsText: getSearchFriendsText(state),
   };
 };
 
