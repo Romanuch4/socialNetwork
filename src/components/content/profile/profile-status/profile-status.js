@@ -1,48 +1,37 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './profile-status.css';
 
-export default class ProfileStatus extends Component {
-  state = {
-    isToggle: false,
-    status: this.props.status,
+const ProfileStatus = (props) => {
+
+  const [isToggle, setIsToggle] = useState(false);
+  const [status, setStatus] = useState(props.status);
+
+  useEffect(() => setStatus(props.status), [props.status]);
+
+  const changeStatus = () => {
+    setIsToggle(!isToggle);
+    props.updateStatus(status);
   };
 
-  changeStatus = () => {
-    this.setState({
-      isToggle: !this.state.isToggle,
-    });
-    this.props.updateStatus(this.state.status);
+  const onStatusChange = evt => {
+    setStatus(evt.currentTarget.value);
   };
 
-  onStatusChange = evt => {
-    this.setState({
-      status: evt.currentTarget.value,
-    });
-  };
-
-  componentDidUpdate = prevProps => {
-    if(prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status,
-      });
-    };
-  };
-
-  render = () => {
-    if (!this.state.isToggle) {
-      return (
-        <div>
-          <span onClick={this.changeStatus}>
-            {this.props.status || 'Nothing'}
-          </span>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <input onChange={this.onStatusChange} onBlur={this.changeStatus} value={this.state.status} autoFocus />
-        </div>
-      );
-    };
+  if (!isToggle) {
+    return (
+      <div>
+        <span onClick={changeStatus}>
+          {props.status || 'Nothing'}
+        </span>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <input onChange={onStatusChange} onBlur={changeStatus} value={status} autoFocus />
+      </div>
+    );
   };
 };
+
+export default ProfileStatus;
