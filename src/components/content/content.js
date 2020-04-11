@@ -6,7 +6,7 @@ import Register from './register';
 import HellowBottom from './hellow/hellow-bottom';
 import HellowContainer from './hellow';
 
-const Content = ({ isAuth, login, logout }) => {
+const Content = React.memo(({ isAuth, login, logout }) => {
   return (
     <>
       <main className="main">
@@ -17,7 +17,7 @@ const Content = ({ isAuth, login, logout }) => {
       </main>
       <HellowBottom />
     </>
-  )
-};
+  );
+});
 
 export default Content;

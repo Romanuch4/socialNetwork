@@ -2,7 +2,7 @@ import React from 'react';
 import './exit.css';
 import { Redirect } from 'react-router-dom';
 
-const Exit = ({ logout, isAuth }) => {
+const Exit = React.memo(({ logout, isAuth }) => {
   if (!isAuth) {
     return <Redirect to="login" />
   }
@@ -12,6 +12,6 @@ const Exit = ({ logout, isAuth }) => {
       <button className="exit-button" onClick={logout}>Выйти</button>
     </div>
   )
-};
+});
 
 export default Exit;

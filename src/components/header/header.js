@@ -3,7 +3,7 @@ import './header.css';
 import HeaderLogo from './header-logo';
 import HeaderNav from './header-nav/header-nav';
 
-const Header = ({login}) => {
+const Header = React.memo(({login}) => {
   return (
     <header className="header">
       <div className="header__content">
@@ -15,7 +15,7 @@ const Header = ({login}) => {
         <HeaderNav />
       </div>
     </header>
-  )
-}
+  );
+});
 
 export default Header;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Hellow from './hellow';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
@@ -6,7 +6,7 @@ import {addPosts} from '../../../redux/reducers/post-reducer';
 import { compose } from 'redux';
 import { getSearchFriendsText, getPosts, getFriend } from '../../../redux/selectors';
 
-class HellowComponent extends Component {
+class HellowComponent extends PureComponent {
   render = () => {
     return (
       <Hellow {...this.props} />//dispath

@@ -4,7 +4,7 @@ import RegisterTitle from './register-title';
 import RegisterContent from './register-content';
 import { Redirect } from 'react-router-dom';
 
-const Register = ({ isAuth, login }) => {
+const Register = React.memo(({ isAuth, login }) => {
   if (isAuth) {
     return <Redirect to={"/hellow"} />
   } else {
@@ -15,6 +15,6 @@ const Register = ({ isAuth, login }) => {
       </article>
     );
   };
-};
+});
 
 export default Register;

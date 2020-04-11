@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import Profile from './profile';
 import Preloader from '../common/preloader';
@@ -10,7 +10,7 @@ import { compose } from 'redux';
 import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/reducers/profile-reducer';
 import { getPerson, getStatus, getUserId } from '../../../redux/selectors';
 
-class ProfileComponent extends Component {
+class ProfileComponent extends PureComponent {
   
   componentDidMount = () => {
     let userId = this.props.match.params.userId;
