@@ -17,8 +17,7 @@ const appReducer = (state = initialState, action) => {
 const setInitialized = () => ({type: 'SET_INITIALIZED'});
 
 export const initializedApp = () => dispatch => {
-  const promise = dispatch(getProfileThunkCreator());
-  Promise.all([promise]).then(() => dispatch(setInitialized()));
+  Promise.all([dispatch(getProfileThunkCreator())]).then(() => dispatch(setInitialized()));
 };
 
 export default appReducer;

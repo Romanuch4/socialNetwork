@@ -32,7 +32,7 @@ const PostReducer = (state = initialState, action) => {
 export const addPosts = text => {
   return {
     type: 'ADD-POSTS',
-    text: text,
+    text,
   };
 };
 
