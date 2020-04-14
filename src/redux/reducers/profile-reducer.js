@@ -1,4 +1,4 @@
-import {getData} from '../../api/api';
+import { getData } from '../../api/api';
 
 const initialState = {
   person: {
@@ -13,18 +13,22 @@ const initialState = {
   status: "",
 }
 
+const UPDATE_USER = 'profile/UPDATE_USER',
+  TOOGLE_IS_FETCHING = 'profile/TOOGLE_IS_FETCHING',
+  SET_STATUS = 'profile/SET_STATUS';
+
 const ProfileReducer = (state = initialState, action) => {
-  if(action.type === 'UPDATE-USER') {
+  if (action.type === UPDATE_USER) {
     return {
       ...state,
       person: action.person,
     };
-  } else if (action.type === 'TOOGLE_IS_FETCHING') {
+  } else if (action.type === TOOGLE_IS_FETCHING) {
     return {
       ...state,
       isFetching: action.isFetching,
     };
-  } else if (action.type === 'SET-STATUS') {
+  } else if (action.type === SET_STATUS) {
     return {
       ...state,
       status: action.status,
@@ -35,51 +39,45 @@ const ProfileReducer = (state = initialState, action) => {
 
 export const getUser = person => {
   return {
-    type: 'UPDATE-USER',
+    type: UPDATE_USER,
     person,
   };
 };
 
 export const toogleIsFetching = isFetching => {
   return {
-    type: 'TOOGLE_IS_FETCHING',
+    type: TOOGLE_IS_FETCHING,
     isFetching,
   };
 };
 
 export const setStatus = status => {
   return {
-    type: 'SET-STATUS',
+    type: SET_STATUS,
     status,
   };
 };
 
-export const getProfileThunkCreator = user => dispatch => {
+export const getProfileThunkCreator = user => async dispatch => {
   let userId = user;
-    if (userId === undefined) {
-      userId = 2;
-    }
-    dispatch(toogleIsFetching(true));
-    getData.getProfile(userId)
-      .then(response => {
-        dispatch(toogleIsFetching(false));
-        dispatch(getUser(response));
-      }
-    );
+  if (userId === undefined) {
+    userId = 2;
+  };
+  dispatch(toogleIsFetching(true));
+  const response = await getData.getProfile(userId);
+  dispatch(toogleIsFetching(false));
+  dispatch(getUser(response));
 };
 
-export const getStatusThunkCreator = userId => dispatch => {
-  getData.getStatus(userId)
-  .then(response => {
-    dispatch(setStatus(response));
-  });
+export const getStatusThunkCreator = userId => async dispatch => {
+  const response = await getData.getStatus(userId);
+  dispatch(setStatus(response));
 };
 
-export const updateStatusThunkCreator = status => dispatch => {
-  getData.updateStatus(status)
-  .then(() => {
-    dispatch(setStatus(status));
-  });
+export const updateStatusThunkCreator = status => async dispatch => {
+  await getData.updateStatus(status);
+  dispatch(setStatus(status));
 };
+
 
 export default ProfileReducer;

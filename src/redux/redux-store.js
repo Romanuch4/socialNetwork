@@ -2,7 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import PostReducer from './reducers/post-reducer';
 import FriendsReducer from './reducers/friends-reducer';
-import deleteEventsReducer from './reducers/delete_events-reducer';
+import EventsReducer from './reducers/events-reducer';
 import ProfileReducer from './reducers/profile-reducer';
 import authReducer from './reducers/auth-reducer';
 import thunkMiddleware from 'redux-thunk';
@@ -12,7 +12,7 @@ import appReducer from './reducers/app-reducer';
 const reducers = combineReducers({
   posts: PostReducer,
   friends: FriendsReducer,
-  events: deleteEventsReducer,
+  events: EventsReducer,
   profile: ProfileReducer,
   auth: authReducer,
   app: appReducer,

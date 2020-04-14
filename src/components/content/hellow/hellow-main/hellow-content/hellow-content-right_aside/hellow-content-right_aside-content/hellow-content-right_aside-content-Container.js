@@ -1,5 +1,5 @@
 import RightAsideContent from './hellow-content-right_aside-content';
-import {deleteEvents} from '../../../../../../../redux/reducers/delete_events-reducer';
+import {deleteEvents} from '../../../../../../../redux/reducers/events-reducer';
 import { connect } from 'react-redux';
 import { getEvents } from '../../../../../../../redux/selectors';
 

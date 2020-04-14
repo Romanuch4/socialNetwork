@@ -14,8 +14,10 @@ const initialState = {
   ],
 }
 
+const ADD_POSTS = 'post/ADD_POSTS';
+
 const PostReducer = (state = initialState, action) => {
-  if (action.type === 'ADD-POSTS') {
+  if (action.type === ADD_POSTS) {
     const newPost = {
       id: state.posts.length + 1,
       text: action.text,
@@ -31,7 +33,7 @@ const PostReducer = (state = initialState, action) => {
 
 export const addPosts = text => {
   return {
-    type: 'ADD-POSTS',
+    type: ADD_POSTS,
     text,
   };
 };

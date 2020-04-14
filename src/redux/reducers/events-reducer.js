@@ -30,11 +30,13 @@ const initialState = {
       date: 'В 20:00 по Киеву'
     },
   ],
-}
+};
 
-const deleteEventsReducer = (state = initialState, action) => {
+const DELETE_EVENTS = 'events/DELETE_EVENTS';
+
+const EventsReducer = (state = initialState, action) => {
   let stateCopy = JSON.parse(JSON.stringify(state));
-  if(action.type === 'DELETE-EVENTS') {
+  if(action.type === DELETE_EVENTS) {
     for(let i = 0; i < stateCopy.events.length; i++) {
       if(stateCopy.events[i].title === action.text) {
         stateCopy.events.splice(i,1);
@@ -48,9 +50,9 @@ const deleteEventsReducer = (state = initialState, action) => {
 
 export const deleteEvents = text => {
   return {
-    type: 'DELETE-EVENTS',
+    type: DELETE_EVENTS,
     text: text,
   }
 };
 
-export default deleteEventsReducer;
+export default EventsReducer;
