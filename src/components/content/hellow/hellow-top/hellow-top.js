@@ -1,8 +1,8 @@
 import React from 'react';
 import './hellow-top.css';
-import HellowTopPersonal from './hellow-top-personal';
-import PostReduxForm from './hellow-top-post';
-import HellowTopPFriends from './hellow-top-friends';
+import HellowTopPersonal from './personal';
+import PostReduxForm from './post';
+import HellowTopPFriends from './friends';
 
 const HellowTop = ({stateFriends, addPosts}) => {
   const onSubmit = formData => {

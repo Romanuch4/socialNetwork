@@ -1,7 +1,7 @@
 import React from 'react';
 import './hellow-content-left_aside.css';
-import LeftAsideMessages from './hellow-content-left_aside-messages';
-import LeftAsideFriends from './hellow-content-left_aside-friends';
+import LeftAsideMessages from './messages';
+import LeftAsideFriends from './friends';
 
 const LeftAside = ({searchFriendsText, dispatch}) => {
   return (

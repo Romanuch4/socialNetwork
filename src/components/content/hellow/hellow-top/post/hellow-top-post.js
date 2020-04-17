@@ -1,7 +1,7 @@
 import React from 'react';
 import './hellow-top-post.css';
-import HellowTopPostButton from './hellow-top-post-button';
-import HellowTopPostArea from './hellow-top-post-textarea';
+import HellowTopPostButton from './post-button';
+import HellowTopPostArea from './post-textarea';
 import { reduxForm } from 'redux-form';
 
 const HellowTopPost = ({handleSubmit}) => {

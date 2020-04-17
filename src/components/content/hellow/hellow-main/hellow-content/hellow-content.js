@@ -1,8 +1,8 @@
 import React from 'react';
 import './hellow-content.css';
-import LeftAside from './hellow-content-left_aside';
-import Center from './hellow-content-center';
-import RightAside from './hellow-content-right_aside';
+import LeftAside from './left_aside';
+import Center from './center';
+import RightAside from './right_aside';
 
 const HellowContent = ({statePosts, dispatch}) => {
   return (

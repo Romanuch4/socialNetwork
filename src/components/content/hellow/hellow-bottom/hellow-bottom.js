@@ -1,6 +1,6 @@
 import React from 'react';
 import './hellow-bottom.css';
-import HellowBottomContent from './hellow-bottom-content';
+import HellowBottomContent from './content';
 
 const HellowBottom = () => {
   return (

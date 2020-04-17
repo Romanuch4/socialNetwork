@@ -4,16 +4,16 @@ import * as serviceWorker from './serviceWorker';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import AppContainer from './AppContainer';
 
 const rerenderEntireTree = () => {
   ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={Store} >
         <AppContainer dispatch={Store.dispatch.bind(Store)} store={Store.getState()} />
       </Provider>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('root'));
 };
 

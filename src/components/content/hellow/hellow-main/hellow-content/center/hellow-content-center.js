@@ -1,6 +1,6 @@
 import React from 'react';
 import './hellow-content-center.css';
-import CenterPosts from './hellow-content-center-posts';
+import CenterPosts from './center-posts';
 
 const Center = ({statePosts}) => {
   return (

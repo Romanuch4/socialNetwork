@@ -1,7 +1,7 @@
 import React from 'react';
 import './hellow-top-friends.css';
-import HellowTopPFriendsTitle from './hellow-top-friends-title';
-import HellowTopPFriendsContent from './hellow-top-friends-content';
+import HellowTopPFriendsTitle from './friends-title';
+import HellowTopPFriendsContent from './friends-content';
 
 const HellowTopPFriends = ({stateFriends}) => {
 
