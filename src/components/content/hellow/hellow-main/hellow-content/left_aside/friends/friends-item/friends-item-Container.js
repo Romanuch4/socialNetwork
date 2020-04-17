@@ -1,4 +1,4 @@
-import LeftAsideFriendsItemComponent from './hellow-content-left_aside-friends-item-Component';
+import LeftAsideFriendsItemComponent from './friends-item-Component';
 import {getStartFriendsThunkCreator, getFriendsThunkCreator} from '../../../../../../../../redux/reducers/friends-reducer';
 import { connect } from 'react-redux';
 import { getFriend, getIsFetching, getCount } from '../../../../../../../../redux/selectors';

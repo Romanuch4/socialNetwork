@@ -1,5 +1,5 @@
 import React from 'react';
-import './hellow-content-left_aside-friends-item.css';
+import './friends-item.css';
 import avatar1 from '../../../../../../../../images/Roman.png';
 import avatar2 from '../../../../../../../../images/Karina.jpg';
 import { NavLink } from 'react-router-dom';

@@ -1,3 +1,3 @@
-import LeftAsideFriendsItemContainer from './hellow-content-left_aside-friends-item-Container';
+import LeftAsideFriendsItemContainer from './friends-item-Container';
 
 export default LeftAsideFriendsItemContainer;

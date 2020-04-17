@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LeftAsideFriendsItem from './hellow-content-left_aside-friends-item';
+import LeftAsideFriendsItem from './friends-item';
 import Preloader from '../../../../../../common/preloader';
 
 export default class LeftAsideFriendsItemComponent extends Component {
