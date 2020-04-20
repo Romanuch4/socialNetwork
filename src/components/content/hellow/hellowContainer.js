@@ -4,12 +4,20 @@ import Hellow from './hellow';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import {addPosts} from '../../../redux/reducers/post-reducer';
 import { compose } from 'redux';
-import { getSearchFriendsText, getPosts, getFriend } from '../../../redux/selectors';
+import { getSearchFriendsText, getPosts, getFriend, getPhoto, getUserId } from '../../../redux/selectors';
+import {downloadPhotoThunkCreator, } from '../../../redux/reducers/profile-reducer';
+import {getProfileThunkCreator} from '../../../redux/reducers/profile-reducer';
 
 class HellowComponent extends PureComponent {
+  componentDidMount() {
+    this.props.getProfileThunkCreator(this.props.userId);
+  }
+
   render = () => {
     return (
-      <Hellow {...this.props} />//dispath
+      <>
+        <Hellow {...this.props} />
+      </>
     )
   }
 };
@@ -19,7 +27,9 @@ const mapStateToProps = state => {
     stateFriends: getFriend(state),
     statePosts: getPosts(state),
     searchFriendsText: getSearchFriendsText(state),
+    userImage: getPhoto(state),
+    userId: getUserId(state),
   };
 };
 
-export default compose( connect(mapStateToProps, {addPosts}),WithAuthRedirect)(HellowComponent);
+export default compose( connect(mapStateToProps, {addPosts, downloadPhotoThunkCreator, getProfileThunkCreator}),WithAuthRedirect)(HellowComponent);

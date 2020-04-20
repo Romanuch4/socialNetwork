@@ -21,3 +21,5 @@ export const getStatus = state => state.profile.status;
 export const getUserId = state => state.auth.userId;
 
 export const getEvents = state => state.events;
+
+export const getPhoto = state => state.profile.person.photos.large;

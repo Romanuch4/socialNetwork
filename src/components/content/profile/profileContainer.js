@@ -11,16 +11,25 @@ import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/
 import { getPerson, getStatus, getUserId } from '../../../redux/selectors';
 
 class ProfileComponent extends PureComponent {
-  
-  componentDidMount = () => {
+  refreshProfile = () => {
     let userId = this.props.match.params.userId;
     if (userId === "1" || !userId) {
       userId = this.props.userId;
     }
 
     this.props.getProfileThunkCreator(userId);
-    this.props.getStatusThunkCreator(userId);    
+    this.props.getStatusThunkCreator(userId);
+  }
+
+  componentDidMount = () => {
+    this.refreshProfile();
   };
+
+  componentDidUpdate = prevProps => {
+    if (this.props.person.photos.large !== prevProps.person.photos.large) {
+      this.refreshProfile();
+    }
+  }
 
   render = () => {
     return (
@@ -42,7 +51,7 @@ const mapStateToProps = state => {
 
 export default compose(
   connect(
-    mapStateToProps, 
+    mapStateToProps,
     { toogleIsFetching, getProfileThunkCreator, getStatusThunkCreator, updateStatusThunkCreator }
   ),
   withRouter,

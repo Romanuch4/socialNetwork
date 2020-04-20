@@ -14,8 +14,9 @@ const initialState = {
 }
 
 const UPDATE_USER = 'profile/UPDATE_USER',
-  TOOGLE_IS_FETCHING = 'profile/TOOGLE_IS_FETCHING',
-  SET_STATUS = 'profile/SET_STATUS';
+      TOOGLE_IS_FETCHING = 'profile/TOOGLE_IS_FETCHING',
+      SET_STATUS = 'profile/SET_STATUS',
+      ADD_IMAGE = 'image/ADD_IMAGE';
 
 const ProfileReducer = (state = initialState, action) => {
   if (action.type === UPDATE_USER) {
@@ -33,8 +34,20 @@ const ProfileReducer = (state = initialState, action) => {
       ...state,
       status: action.status,
     };
+  } else if (action.type === ADD_IMAGE) {
+    return {
+      ...state,
+      profile: {...state.profile, photos: action.photos},
+    };
   };
   return state;
+};
+
+export const addImage = photo => {
+  return {
+    type: ADD_IMAGE,
+    photo,
+  };
 };
 
 export const getUser = person => {
@@ -56,6 +69,16 @@ export const setStatus = status => {
     type: SET_STATUS,
     status,
   };
+};
+
+export const downloadPhotoThunkCreator = photo => async dispatch => {
+  const response = await getData.getPhoto(photo);
+  if (response.resultCode === 0) {
+    dispatch(addImage(response.data.photos.large));
+  } else {
+    alert(response.messages[0]);
+  };
+  window.location.hash = '#/profile';  
 };
 
 export const getProfileThunkCreator = user => async dispatch => {

@@ -38,4 +38,14 @@ export const getData = {
   logout() {
     return instanceRequest.delete('auth/login');
   },
+
+  getPhoto(photo) {
+    const formData = new FormData();
+    formData.append("image", photo);
+    return instanceRequest.put('profile/photo', formData, {
+      headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+    }).then(response => response.data);
+  },
 };

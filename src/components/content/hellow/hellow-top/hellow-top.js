@@ -4,18 +4,19 @@ import HellowTopPersonal from './personal';
 import PostReduxForm from './post';
 import HellowTopPFriends from './friends';
 
-const HellowTop = ({stateFriends, addPosts}) => {
+const HellowTop = React.memo(({stateFriends, addPosts, downloadPhoto, userImage}) => {
   const onSubmit = formData => {
     addPosts(formData.postText);
+    formData.postText = '';
   };
 
   return (
     <section className="hellow-top">
-      <HellowTopPersonal />
+      <HellowTopPersonal userImage={userImage} downloadPhoto={downloadPhoto} />
       <PostReduxForm onSubmit={onSubmit} />
       <HellowTopPFriends stateFriends={stateFriends} />
     </section>
   );
-};
+});
 
 export default HellowTop;

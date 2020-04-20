@@ -20,15 +20,22 @@
   height: 20px;
   text-align: center;
   border-top-left-radius: 5px;
-}
-
-
-.hellow-top-personal-download:hover {
   cursor: pointer;
 }
 
 .fa-download {
   color: #FFF;
+}
+
+.hellow-top-personal-input {
+  top: 0;
+  left: 0;
+  width: 20px;
+	height: 20px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+  z-index: 1;
 }
 
 /* Medium Devices, Desktops */

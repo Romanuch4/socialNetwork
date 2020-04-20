@@ -3,7 +3,7 @@ import './hellow-top-friends.css';
 import HellowTopPFriendsTitle from './friends-title';
 import HellowTopPFriendsContent from './friends-content';
 
-const HellowTopPFriends = ({stateFriends}) => {
+const HellowTopPFriends = React.memo(({stateFriends}) => {
 
 
   return (
@@ -11,7 +11,7 @@ const HellowTopPFriends = ({stateFriends}) => {
       <HellowTopPFriendsTitle />
       <HellowTopPFriendsContent stateFriends={stateFriends} />
     </div>
-  )
-};
+  );
+});
 
 export default HellowTopPFriends;
