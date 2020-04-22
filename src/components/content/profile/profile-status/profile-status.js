@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './profile-status.css';
 
-const ProfileStatus = (props) => {
+const ProfileStatus = React.memo((props) => {
 
   const [isToggle, setIsToggle] = useState(false);
   const [status, setStatus] = useState(props.status);
@@ -21,17 +21,17 @@ const ProfileStatus = (props) => {
     return (
       <div>
         <span onClick={changeStatus}>
-          {props.status || 'Nothing'}
+          Status: {props.status || 'Nothing'}
         </span>
       </div>
     );
   } else {
     return (
       <div>
-        <input onChange={onStatusChange} onBlur={changeStatus} value={status} autoFocus />
+        Status: <input onChange={onStatusChange} onBlur={changeStatus} value={status} autoFocus />
       </div>
     );
   };
-};
+});
 
 export default ProfileStatus;

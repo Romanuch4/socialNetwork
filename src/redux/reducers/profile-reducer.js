@@ -8,9 +8,20 @@ const initialState = {
       small: '123wwerwer',
     },
     fullName: 'The best',
+    contacts: {
+      facebook: null,
+      website: null,
+      vk: null,
+      twitter: null,
+      instagram: null,
+      youtube: null,
+      github: null,
+      mainLink: null,
+    },
   },
   isFetching: false,
   status: "",
+  isEdit: true,
 }
 
 const UPDATE_USER = 'profile/UPDATE_USER',
@@ -71,25 +82,16 @@ export const setStatus = status => {
   };
 };
 
-export const downloadPhotoThunkCreator = photo => async dispatch => {
-  const response = await getData.getPhoto(photo);
-  if (response.resultCode === 0) {
-    dispatch(addImage(response.data.photos.large));
-  } else {
-    alert(response.messages[0]);
-  };
-  window.location.hash = '#/profile';  
-};
-
-export const getProfileThunkCreator = user => async dispatch => {
+export const getProfileThunkCreator = user => async (dispatch, getState) => {
   let userId = user;
-  if (userId === undefined) {
-    userId = 2;
+  if (userId === undefined || userId === null) {
+    userId = getState().auth.userId;
   };
   dispatch(toogleIsFetching(true));
   const response = await getData.getProfile(userId);
   dispatch(toogleIsFetching(false));
   dispatch(getUser(response));
+  
 };
 
 export const getStatusThunkCreator = userId => async dispatch => {
@@ -100,6 +102,16 @@ export const getStatusThunkCreator = userId => async dispatch => {
 export const updateStatusThunkCreator = status => async dispatch => {
   await getData.updateStatus(status);
   dispatch(setStatus(status));
+};
+
+export const downloadPhotoThunkCreator = photo => async dispatch => {
+  const response = await getData.getPhoto(photo);
+  if (response.resultCode === 0) {
+    dispatch(addImage(response.data.photos.large));
+  } else {
+    alert(response.messages[0]);
+  };
+  window.location.hash = '#/profile';
 };
 
 

@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import { compose } from 'redux';
 import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/reducers/profile-reducer';
-import { getPerson, getStatus, getUserId } from '../../../redux/selectors';
+import { getPerson, getStatus, getUserId, getIsEdit } from '../../../redux/selectors';
 
 class ProfileComponent extends PureComponent {
   refreshProfile = () => {
@@ -35,7 +35,7 @@ class ProfileComponent extends PureComponent {
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
-        <Profile {...this.props} person={this.props.person} />
+        <Profile {...this.props} />
       </>
     )
   }
@@ -46,6 +46,7 @@ const mapStateToProps = state => {
     person: getPerson(state),
     status: getStatus(state),
     userId: getUserId(state),
+    isEdit: getIsEdit(state),
   };
 };
 

@@ -5,8 +5,9 @@ import ProfileAbout from './profile-about';
 import ProfileImg from './profile-img';
 import ProfileName from './profile-name';
 import ProfileJob from './profile-job';
+import ProfileSocials from './profile-socials';
 
-const Profile = ({ person, status, updateStatusThunkCreator}) => {
+const Profile = React.memo(({ person, status, updateStatusThunkCreator, isEdit}) => {  
   return (
     <div className="profile">
       <div className="profile-content">
@@ -15,9 +16,10 @@ const Profile = ({ person, status, updateStatusThunkCreator}) => {
       <ProfileAbout about={person.aboutMe} />
       <ProfileJob jobDescription={person.lookingForAJobDescription} />
       <ProfileStatus updateStatus={updateStatusThunkCreator} status={status} />
+      <ProfileSocials isEdit={isEdit} contacts={person.contacts} />
       </div>
     </div>
-  )
-};
+  );
+});
 
 export default Profile;
