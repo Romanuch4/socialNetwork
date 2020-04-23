@@ -3,8 +3,8 @@ import './register-content.css';
 import RegisterSubTitle from './register-sub-title';
 import AuthReduxForm from './register-form';
 
-const RegisterContent = ({ login }) => {
-  const onSubmit = formData => {
+const RegisterContent = React.memo(({ login }) => {
+  const onSubmit = formData => {    
     const {email, password} = formData;
     login(email, password, false)
   };
@@ -18,6 +18,6 @@ const RegisterContent = ({ login }) => {
       <div className="register-content-bottom register-content-bottom-3"></div>
     </section>
   )
-};
+});
 
 export default RegisterContent;

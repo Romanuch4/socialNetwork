@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import Profile from './profile';
 import Preloader from '../common/preloader';
 import { toogleIsFetching } from '../../../redux/reducers/friends-reducer';
-import { getProfileThunkCreator } from '../../../redux/reducers/profile-reducer';
+import { getProfileThunkCreator, saveProfileThunkCreator, toggleIsEdit, getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/reducers/profile-reducer';
 import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import { compose } from 'redux';
-import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/reducers/profile-reducer';
-import { getPerson, getStatus, getUserId } from '../../../redux/selectors';
+import { getPerson, getStatus, getUserId, getIsEdit } from '../../../redux/selectors';
 
 class ProfileComponent extends PureComponent {
   refreshProfile = () => {
@@ -35,7 +34,7 @@ class ProfileComponent extends PureComponent {
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
-        <Profile {...this.props} person={this.props.person} />
+        <Profile {...this.props} />
       </>
     )
   }
@@ -46,13 +45,20 @@ const mapStateToProps = state => {
     person: getPerson(state),
     status: getStatus(state),
     userId: getUserId(state),
+    isEdit: getIsEdit(state),
   };
 };
 
 export default compose(
   connect(
     mapStateToProps,
-    { toogleIsFetching, getProfileThunkCreator, getStatusThunkCreator, updateStatusThunkCreator }
+    { toogleIsFetching, 
+      toggleIsEdit,
+      getProfileThunkCreator, 
+      getStatusThunkCreator, 
+      updateStatusThunkCreator,
+      saveProfileThunkCreator,
+    },
   ),
   withRouter,
   WithAuthRedirect

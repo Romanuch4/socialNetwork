@@ -1,7 +1,7 @@
 import React from 'react';
 import './register-sub-title.css';
 
-const RegisterSubTitle = () => {
+const RegisterSubTitle = React.memo(() => {
   return (
     <div>
       <h3 className="register-sub-title">
@@ -12,6 +12,6 @@ const RegisterSubTitle = () => {
       </h4>
     </div>
   )
-};
+});
 
 export default RegisterSubTitle;

@@ -48,4 +48,8 @@ export const getData = {
       }
     }).then(response => response.data);
   },
+
+  saveProfile(profile) {
+    return instanceRequest.put('profile', profile);
+  },
 };

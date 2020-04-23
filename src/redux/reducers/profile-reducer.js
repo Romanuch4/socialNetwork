@@ -1,4 +1,5 @@
 import { getData } from '../../api/api';
+import{stopSubmit} from 'redux-form';
 
 const initialState = {
   person: {
@@ -8,15 +9,20 @@ const initialState = {
       small: '123wwerwer',
     },
     fullName: 'The best',
+    contacts: {
+      
+    }
   },
   isFetching: false,
   status: "",
+  isEdit: false,
 }
 
 const UPDATE_USER = 'profile/UPDATE_USER',
       TOOGLE_IS_FETCHING = 'profile/TOOGLE_IS_FETCHING',
       SET_STATUS = 'profile/SET_STATUS',
-      ADD_IMAGE = 'image/ADD_IMAGE';
+      ADD_IMAGE = 'profile/ADD_IMAGE',
+      TOGGLE_IS_EDIT = 'profile/TOGGLE_IS_EDIT';
 
 const ProfileReducer = (state = initialState, action) => {
   if (action.type === UPDATE_USER) {
@@ -39,7 +45,12 @@ const ProfileReducer = (state = initialState, action) => {
       ...state,
       profile: {...state.profile, photos: action.photos},
     };
-  };
+  } else if (action.type === TOGGLE_IS_EDIT) {
+    return {
+      ...state,
+      isEdit: action.isEdit,
+    };
+  } 
   return state;
 };
 
@@ -71,6 +82,13 @@ export const setStatus = status => {
   };
 };
 
+export const toggleIsEdit = isEdit => {
+  return {
+    type: TOGGLE_IS_EDIT,
+    isEdit,
+  };
+};
+
 export const downloadPhotoThunkCreator = photo => async dispatch => {
   const response = await getData.getPhoto(photo);
   if (response.resultCode === 0) {
@@ -81,9 +99,21 @@ export const downloadPhotoThunkCreator = photo => async dispatch => {
   window.location.hash = '#/profile';  
 };
 
+export const saveProfileThunkCreator = profile => async (dispatch, getState) => {
+  const userId = getState().auth.userId;
+  const response = await getData.saveProfile(profile);
+  if (response.resultCode === 0) {
+    dispatch(getUser(userId));
+  } else {
+    dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0] }));
+    //return Promise.reject(response.data.messages[0]);
+  };
+   
+};
+
 export const getProfileThunkCreator = user => async dispatch => {
   let userId = user;
-  if (userId === undefined) {
+  if (!userId) {
     userId = 2;
   };
   dispatch(toogleIsFetching(true));
