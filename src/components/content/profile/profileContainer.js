@@ -7,6 +7,10 @@ import { getProfileThunkCreator, saveProfileThunkCreator, toggleIsEdit, getStatu
 import { withRouter } from 'react-router-dom';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import { compose } from 'redux';
+<<<<<<< HEAD
+=======
+import { getStatusThunkCreator, updateStatusThunkCreator } from '../../../redux/reducers/profile-reducer';
+>>>>>>> master
 import { getPerson, getStatus, getUserId, getIsEdit } from '../../../redux/selectors';
 
 class ProfileComponent extends PureComponent {

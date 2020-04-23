@@ -1,0 +1,21 @@
+.profile-socials {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.profile-socials-item {
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.profile-socials-button {
+  border: none;
+  background-color: #334D82;
+  padding: 10px 20px;
+  position: relative;
+  bottom: 6px;
+  margin-left: 30px;
+  cursor: pointer;
+}
