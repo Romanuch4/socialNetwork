@@ -10,28 +10,12 @@ const initialState = {
     },
     fullName: 'The best',
     contacts: {
-<<<<<<< HEAD
       
     }
   },
   isFetching: false,
   status: "",
   isEdit: false,
-=======
-      facebook: null,
-      website: null,
-      vk: null,
-      twitter: null,
-      instagram: null,
-      youtube: null,
-      github: null,
-      mainLink: null,
-    },
-  },
-  isFetching: false,
-  status: "",
-  isEdit: true,
->>>>>>> master
 }
 
 const UPDATE_USER = 'profile/UPDATE_USER',
@@ -98,7 +82,6 @@ export const setStatus = status => {
   };
 };
 
-<<<<<<< HEAD
 export const toggleIsEdit = isEdit => {
   return {
     type: TOGGLE_IS_EDIT,
@@ -132,12 +115,6 @@ export const getProfileThunkCreator = user => async dispatch => {
   let userId = user;
   if (!userId) {
     userId = 2;
-=======
-export const getProfileThunkCreator = user => async (dispatch, getState) => {
-  let userId = user;
-  if (userId === undefined || userId === null) {
-    userId = getState().auth.userId;
->>>>>>> master
   };
   dispatch(toogleIsFetching(true));
   const response = await getData.getProfile(userId);
@@ -155,16 +132,5 @@ export const updateStatusThunkCreator = status => async dispatch => {
   await getData.updateStatus(status);
   dispatch(setStatus(status));
 };
-
-export const downloadPhotoThunkCreator = photo => async dispatch => {
-  const response = await getData.getPhoto(photo);
-  if (response.resultCode === 0) {
-    dispatch(addImage(response.data.photos.large));
-  } else {
-    alert(response.messages[0]);
-  };
-  window.location.hash = '#/profile';
-};
-
 
 export default ProfileReducer;
