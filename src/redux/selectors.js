@@ -25,3 +25,5 @@ export const getEvents = state => state.events;
 export const getIsEdit = state => state.profile.isEdit;
 
 export const getPhoto = state => state.profile.person.photos.large;
+
+export const getCaptchaUrl = state => state.auth.captchaUrl;

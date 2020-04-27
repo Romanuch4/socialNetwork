@@ -5,7 +5,7 @@ import { initializedApp } from "./redux/reducers/app-reducer";
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Preloader from './components/content/common/preloader';
-import { getLogin, getIsAuth, getInitialized } from './redux/selectors';
+import { getLogin, getIsAuth, getInitialized, getCaptchaUrl } from './redux/selectors';
 
 class AppComponent extends Component {
   componentDidMount = () => {
@@ -28,6 +28,7 @@ const mapStateToProps = state => {
     login: getLogin(state),
     isAuth: getIsAuth(state),
     initialized: getInitialized(state),
+    captchaUrl: getCaptchaUrl(state),
   };
 };
 

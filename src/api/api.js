@@ -31,8 +31,8 @@ export const getData = {
     return instanceRequest.put('profile/status/', {status})
   },
 
-  login(email, password, rememberMe = false) {
-    return instanceRequest.post('auth/login', {email, password, rememberMe});
+  login(email, password, rememberMe = false, captcha = '') {
+    return instanceRequest.post('auth/login', {email, password, rememberMe, captcha});
   },
 
   logout() {
@@ -51,5 +51,9 @@ export const getData = {
 
   saveProfile(profile) {
     return instanceRequest.put('profile', profile);
+  },
+
+  getCaptchaUrl() {
+    return instanceRequest.get(`security/get-captcha-url`);
   },
 };

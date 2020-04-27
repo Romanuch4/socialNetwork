@@ -7,7 +7,22 @@ import './register-form.css';
 
 const minLength6 = minLengthCreator(6);
 
-const RegisterForm = React.memo(({ handleSubmit, error }) => {
+const RegisterForm = React.memo(({ handleSubmit, error, captchaUrl }) => {
+  const Captcha = () => {
+    return (
+      <div>
+        <img src={captchaUrl} alt="captcha"/>
+        <Field
+          name="captcha"
+          type="text"
+          component={renderField}
+          label="captcha"
+          validate={[required]}
+          className="register-form-input"
+        />
+      </div>
+    );
+  };
   return (
     <form onSubmit={handleSubmit}>
       <Field
@@ -26,6 +41,7 @@ const RegisterForm = React.memo(({ handleSubmit, error }) => {
         validate={[required, minLength6]}
         className="register-form-input"
       />
+      {captchaUrl && <Captcha />}
       <RegisterFormButton />
       {error && <div className="register-form-error error">{error}</div>}
     </form>
