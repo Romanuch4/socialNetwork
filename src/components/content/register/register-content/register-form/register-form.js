@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterFormButton from './register-form-button';
-import { reduxForm, Field } from 'redux-form';
+import { Field } from 'redux-form';
 import { required, minLengthCreator, email, } from '../../../../../utils/validators';
 import renderField from '../../../common/form-renderField';
 import './register-form.css';
@@ -48,8 +48,4 @@ const RegisterForm = React.memo(({ handleSubmit, error, captchaUrl }) => {
   )
 });
 
-const AuthReduxForm = reduxForm({
-  form: 'authentificate',
-})(RegisterForm);
-
-export default AuthReduxForm;
+export default RegisterForm;

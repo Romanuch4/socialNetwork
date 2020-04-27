@@ -1,9 +1,13 @@
 import React from 'react';
 import './register-content.css';
 import RegisterSubTitle from './register-sub-title';
-import AuthReduxForm from './register-form';
+import RegisterForm from './register-form';
+import { reduxForm } from 'redux-form';
 
 const RegisterContent = React.memo(({ login, captchaUrl }) => {
+  const AuthReduxForm = reduxForm({
+    form: 'authentificate',
+  })(RegisterForm);
   const onSubmit = formData => {    
     const {email, password, captcha} = formData;
     login(email, password, false, captcha);
