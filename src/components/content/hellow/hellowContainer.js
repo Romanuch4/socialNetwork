@@ -4,7 +4,7 @@ import Hellow from './hellow';
 import { WithAuthRedirect } from '../../../hoc/AuthRedirect';
 import {addPosts} from '../../../redux/reducers/post-reducer';
 import { compose } from 'redux';
-import { getSearchFriendsText, getPosts, getFriend, getPhoto, getUserId } from '../../../redux/selectors';
+import { getSearchFriendsText, getPosts, getFriend, getPhoto, getUserId, getIsFetching2 } from '../../../redux/selectors';
 import {downloadPhotoThunkCreator, } from '../../../redux/reducers/profile-reducer';
 import {getProfileThunkCreator} from '../../../redux/reducers/profile-reducer';
 
@@ -29,6 +29,7 @@ const mapStateToProps = state => {
     searchFriendsText: getSearchFriendsText(state),
     userImage: getPhoto(state),
     userId: getUserId(state),
+    isFetching: getIsFetching2(state),
   };
 };
 

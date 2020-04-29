@@ -90,13 +90,15 @@ export const toggleIsEdit = isEdit => {
 };
 
 export const downloadPhotoThunkCreator = photo => async dispatch => {
+  dispatch(toogleIsFetching(true));
   const response = await getData.getPhoto(photo);
   if (response.resultCode === 0) {
     dispatch(addImage(response.data.photos.large));
   } else {
     alert(response.messages[0]);
   };
-  window.location.hash = '#/profile';  
+  window.location.hash = '#/profile';
+  dispatch(toogleIsFetching(false));
 };
 
 export const saveProfileThunkCreator = profile => async (dispatch, getState) => {

@@ -12,6 +12,8 @@ export const getSearchFriendsText = state => state.friends.searchFriendsText;
 
 export const getIsFetching = state => state.friends.isFetching;
 
+export const getIsFetching2 = state => state.profile.isFetching;
+
 export const getCount = state => state.friends.count;
 
 export const getPerson = state => state.profile.person;
